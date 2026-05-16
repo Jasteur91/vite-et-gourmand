@@ -199,9 +199,10 @@ router.get(
       throw new ForbiddenError();
     }
 
-    // Historique des statuts depuis Mongo
-    const events = await (await import('../db/mongo.js')).getDb()
-      .collection('order_events').find({ commande_id: id }).sort({ created_at: 1 }).toArray();
+    // Historique des statuts depuis Mongo (vide si Mongo indisponible)
+    const { tryGetDb } = await import('../db/mongo.js');
+    const db = tryGetDb();
+    const events = db ? await db.collection('order_events').find({ commande_id: id }).sort({ created_at: 1 }).toArray() : [];
     res.json({ ...data, history: events });
   }),
 );

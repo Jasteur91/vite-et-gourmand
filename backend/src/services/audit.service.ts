@@ -1,18 +1,11 @@
-import { getDb } from '../db/mongo.js';
+import { tryGetDb } from '../db/mongo.js';
 
 /**
  * Audit trail NoSQL (MongoDB).
- *
- * Collections :
- *   - order_events : un document par changement d'état de commande
- *   - contact_logs : log des messages de contact reçus
- *   - dashboard_snapshots : (calculé à la volée par admin/dashboard)
- *
- * Pourquoi NoSQL ?
- *   - Schéma flexible : payload variable selon le type d'événement
- *   - Time-series friendly : append-only, indexes performants sur created_at
- *   - Aggregation pipeline natif pour le dashboard admin
+ * Si Mongo n'est pas disponible, les méthodes sont silencieusement no-op
+ * (pas de blocage métier pour ce qui est juste un audit).
  */
+
 export const audit = {
   async logOrderEvent(opts: {
     commande_id: number;
@@ -24,20 +17,20 @@ export const audit = {
     actor_id: number;
     metadata?: Record<string, unknown>;
   }) {
-    await getDb().collection('order_events').insertOne({
-      ...opts,
-      created_at: new Date(),
-    });
+    const db = tryGetDb();
+    if (!db) return;
+    await db.collection('order_events').insertOne({ ...opts, created_at: new Date() });
   },
 
   async logContact(opts: { contact_id: number; email: string; titre: string }) {
-    await getDb().collection('contact_logs').insertOne({
-      ...opts,
-      created_at: new Date(),
-    });
+    const db = tryGetDb();
+    if (!db) return;
+    await db.collection('contact_logs').insertOne({ ...opts, created_at: new Date() });
   },
 
   async dashboardOrdersByMenu(opts: { since?: Date; until?: Date }) {
+    const db = tryGetDb();
+    if (!db) return [];
     const match: Record<string, unknown> = { new_statut: { $in: ['accepte', 'terminee'] } };
     if (opts.since || opts.until) {
       const range: Record<string, Date> = {};
@@ -45,7 +38,7 @@ export const audit = {
       if (opts.until) range['$lte'] = opts.until;
       match['created_at'] = range;
     }
-    return getDb()
+    return db
       .collection('order_events')
       .aggregate([
         { $match: match },
@@ -56,6 +49,8 @@ export const audit = {
   },
 
   async dashboardRevenue(opts: { menuIds?: number[]; since?: Date; until?: Date }) {
+    const db = tryGetDb();
+    if (!db) return [];
     const match: Record<string, unknown> = { new_statut: 'terminee' };
     if (opts.menuIds && opts.menuIds.length > 0) match['menu_id'] = { $in: opts.menuIds };
     if (opts.since || opts.until) {
@@ -64,7 +59,7 @@ export const audit = {
       if (opts.until) range['$lte'] = opts.until;
       match['created_at'] = range;
     }
-    return getDb()
+    return db
       .collection('order_events')
       .aggregate([
         { $match: match },
