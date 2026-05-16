@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Users, Sparkles } from 'lucide-react';
+import { MagneticCard } from './MagneticCard';
 
 export type MenuItem = {
   menu_id: number;
@@ -26,12 +27,16 @@ export function MenuCard({ menu, index = 0 }: { menu: MenuItem; index?: number }
       className="group"
     >
       <Link to={`/menus/${menu.menu_id}`} className="block">
-        <div className="card overflow-hidden">
+        <MagneticCard intensity={4} className="card overflow-hidden">
           <div className="aspect-[4/5] overflow-hidden bg-creme-300 relative">
             {cover ? (
-              <img
+              <motion.img
                 src={cover}
                 alt={menu.titre}
+                initial={{ scale: 1.15, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 className="w-full h-full object-cover transition-transform duration-700 ease-gourmand group-hover:scale-105"
                 loading="lazy"
               />
@@ -70,7 +75,7 @@ export function MenuCard({ menu, index = 0 }: { menu: MenuItem; index?: number }
               </div>
             </div>
           </div>
-        </div>
+        </MagneticCard>
       </Link>
     </motion.article>
   );

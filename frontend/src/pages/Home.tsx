@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Star, ArrowRight, Users, ChevronRight } from 'lucide-react';
 import { api } from '../lib/api';
 import type { MenuItem } from '../components/MenuCard';
+import { AnimatedCounter } from '../components/AnimatedCounter';
+import { MagneticCard } from '../components/MagneticCard';
 
 type PublicReview = {
   note: number;
@@ -263,9 +265,16 @@ export function Home() {
 /* ============================================================ */
 
 function Fig({ num, label }: { num: string; label: string }) {
+  // num like "25", "120+", "5★" — parse it
+  const match = num.match(/^(\d+)(.*)$/);
+  const target = match ? parseInt(match[1] || '0', 10) : 0;
+  const suffix = match ? match[2] || '' : num;
+
   return (
     <div>
-      <p className="font-display text-3xl text-bordeaux-700 leading-none">{num}</p>
+      <p className="font-display text-3xl text-bordeaux-700 leading-none">
+        <AnimatedCounter target={target} suffix={suffix} />
+      </p>
       <p className="text-xs text-cafe-700 mt-1.5 leading-tight">{label}</p>
     </div>
   );
@@ -294,24 +303,31 @@ function FeaturedMenu({ menu, index }: { menu: MenuItem; index: number }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -6 }}
+      transition={{ duration: 0.7, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -8 }}
       className="group"
     >
       <Link to={`/menus/${menu.menu_id}`} className="block">
-        <div className="relative aspect-[4/5] rounded-card overflow-hidden bg-creme-300">
+        <MagneticCard intensity={6} className="relative aspect-[4/5] rounded-card overflow-hidden bg-creme-300 shadow-card">
           {cover && (
-            <img src={cover} alt={menu.titre} loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-700 ease-gourmand group-hover:scale-105" />
+            <motion.img
+              src={cover} alt={menu.titre} loading="lazy"
+              initial={{ scale: 1.1 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full h-full object-cover transition-transform duration-700 ease-gourmand group-hover:scale-105"
+              style={{ transform: 'translateZ(0)' }}
+            />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-cafe-900/70 via-cafe-900/10 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 p-6 text-creme-100">
+          <div className="absolute inset-0 bg-gradient-to-t from-cafe-900/80 via-cafe-900/15 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-6 text-creme-100" style={{ transform: 'translateZ(20px)' }}>
             {menu.theme && <span className="eyebrow text-or-500 capitalize">{menu.theme.libelle}</span>}
             <h3 className="font-display text-2xl mt-2 leading-tight">{menu.titre}</h3>
             <div className="flex items-center justify-between mt-4">
-              <div className="flex gap-1">
+              <div className="flex gap-1 flex-wrap">
                 {regimes.slice(0, 2).map((r) => (
-                  <span key={r} className="tag bg-creme-50/20 text-creme-100 border-creme-100/20 capitalize text-[10px]">{r}</span>
+                  <span key={r} className="tag bg-creme-50/20 text-creme-100 border-creme-100/20 capitalize text-[10px] backdrop-blur">{r}</span>
                 ))}
               </div>
               <div className="text-right">
@@ -323,7 +339,7 @@ function FeaturedMenu({ menu, index }: { menu: MenuItem; index: number }) {
               <Users size={12} /> {menu.nombre_personne_minimum}+ pers.
             </div>
           </div>
-        </div>
+        </MagneticCard>
       </Link>
     </motion.article>
   );

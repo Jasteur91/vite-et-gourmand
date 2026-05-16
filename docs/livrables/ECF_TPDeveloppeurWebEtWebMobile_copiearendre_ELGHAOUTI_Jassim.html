@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>ECF TP DWWM — Copie à rendre — Jassim ELGHAOUTI</title>
+<style>
+  :root { --bordeaux:#6B1F2A; --creme:#F4ECDD; --cafe:#2D1810; --or:#C8A35A; }
+  @page { size: A4; margin: 22mm 18mm; }
+  body { font-family:'Inter',system-ui,sans-serif; color:var(--cafe); line-height:1.7; font-size:11pt; margin:0; }
+  .cover { page-break-after: always; height: 250mm; background: var(--creme); padding: 50mm 25mm; margin: -22mm -18mm; }
+  .cover .eyebrow { color:var(--bordeaux); font-size:9pt; letter-spacing:.2em; text-transform:uppercase; }
+  .cover h1 { font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:46pt; line-height:1.05; color:var(--bordeaux); margin:16pt 0; }
+  .cover .subtitle { font-family:'Fraunces',Georgia,serif; font-style:italic; color:var(--cafe); font-size:20pt; margin-bottom:24pt; }
+  .cover .meta { margin-top:60mm; font-size:11pt; line-height:2; }
+  .cover .meta strong { color:var(--bordeaux); }
+  .rule-gold { height:1px; width:60px; background:var(--or); margin:20pt 0; }
+  h1 { font-family:'Fraunces',Georgia,serif; font-size:24pt; color:var(--bordeaux); margin:36pt 0 10pt; font-weight:400; border-bottom:2px solid var(--or); padding-bottom:8pt; }
+  h2 { font-family:'Fraunces',Georgia,serif; font-size:17pt; color:var(--cafe); margin:24pt 0 6pt; font-weight:500; }
+  h3 { font-family:'Fraunces',Georgia,serif; font-size:13pt; color:var(--bordeaux); margin:18pt 0 4pt; font-weight:500; }
+  p { margin: 0 0 9pt; text-align: justify; }
+  ul, ol { margin: 0 0 10pt; padding-left: 20pt; }
+  li { margin: 4pt 0; }
+  code { background:#00000008; padding:1pt 5pt; border-radius:3pt; font-family:'JetBrains Mono',monospace; font-size:9pt; }
+  table { width:100%; border-collapse:collapse; margin:8pt 0 16pt; font-size:10pt; }
+  th, td { padding:6pt 10pt; border:1px solid #00000015; text-align:left; vertical-align:top; }
+  th { background:var(--creme); color:var(--bordeaux); font-weight:600; font-size:9pt; }
+  .callout { background:#FBF3F4; border-left:3px solid var(--bordeaux); padding:12pt 14pt; margin:14pt 0; border-radius:0 6pt 6pt 0; }
+  .callout strong { color:var(--bordeaux); }
+  .question { background: var(--cafe); color: var(--creme); padding: 12pt 16pt; border-radius: 8pt; margin: 24pt 0 12pt; }
+  .question .label { font-size: 9pt; letter-spacing: 0.15em; text-transform: uppercase; color: var(--or); font-weight: 600; }
+  .question .text { font-family: 'Fraunces', serif; font-size: 14pt; line-height: 1.4; margin-top: 4pt; }
+  .small { font-size: 9pt; color:#666; }
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<div class="cover">
+  <p class="eyebrow">Évaluation en cours de formation</p>
+  <h1>TP Développeur<br>Web et Web Mobile</h1>
+  <div class="rule-gold"></div>
+  <p class="subtitle">Copie à rendre.</p>
+
+  <div class="meta">
+    <p><strong>Étudiant</strong> · Jassim Elghaouti</p>
+    <p><strong>Formation</strong> · TP Développeur Web et Web Mobile (RNCP 37674)</p>
+    <p><strong>Organisme</strong> · Studi — école 100% en ligne</p>
+    <p><strong>Date</strong> · Mai 2026</p>
+    <p style="margin-top: 20pt"><strong>Sujet</strong> · Application web pour « Vite &amp; Gourmand », traiteur événementiel à Bordeaux</p>
+    <p><strong>Client</strong> · Julie &amp; José (FastDev en mission)</p>
+  </div>
+</div>
+
+<!-- ============================ INTRODUCTION ============================ -->
+<h1>Introduction</h1>
+
+<p>Cette copie présente l'application web réalisée pour le client « Vite &amp; Gourmand », traiteur événementiel à Bordeaux depuis vingt-cinq ans, dans le cadre de l'ECF du Titre Professionnel Développeur Web et Web Mobile.</p>
+
+<p>L'application répond à l'intégralité des spécifications fonctionnelles de l'énoncé et est <strong>déployée publiquement</strong>. Elle expose les compétences des deux activités-types du référentiel : <strong>front-end sécurisé</strong> (AT1) et <strong>back-end sécurisé</strong> (AT2).</p>
+
+<h2>Liens utiles</h2>
+<table>
+  <tr><th>Ressource</th><th>URL</th></tr>
+  <tr><td>Application déployée</td><td>https://vite-et-gourmand-drab.vercel.app</td></tr>
+  <tr><td>API backend</td><td>https://vite-et-gourmand-api-three.vercel.app/api</td></tr>
+  <tr><td>Code source GitHub (PUBLIC)</td><td>https://github.com/Jasteur91/vite-et-gourmand</td></tr>
+  <tr><td>Outil de gestion projet (Notion)</td><td>https://www.notion.so/3628e177f2a2816c8069da9304d92760</td></tr>
+</table>
+
+<h2>Comptes de test fournis</h2>
+<table>
+  <tr><th>Rôle</th><th>Email</th><th>Mot de passe</th></tr>
+  <tr><td>Administrateur</td><td>jose@vite-et-gourmand.fr</td><td>AdminViteG2026!</td></tr>
+  <tr><td>Employé</td><td>julie@vite-et-gourmand.fr</td><td>EmployeViteG2026!</td></tr>
+  <tr><td>Utilisateur</td><td>jean.dupont@example.com</td><td>DemoUser2026!</td></tr>
+</table>
+
+<div class="callout">
+  <strong>Cadre de cette copie.</strong> J'ai structuré ce document autour des 9 grandes questions implicites de l'énoncé. Pour chacune, je rappelle ce qui est demandé, puis j'explique mon approche et la justifie. Les détails techniques exhaustifs (MCD, diagrammes, déploiement pas-à-pas) sont dans les livrables annexes (<em>doc-technique.pdf</em>, <em>manuel-utilisateur.pdf</em>, <em>charte-graphique.pdf</em>, <em>gestion-projet.pdf</em>).
+</div>
+
+<!-- ============================ Q1 ============================ -->
+<div class="question">
+  <div class="label">Question 1 — Cadrage</div>
+  <div class="text">Comment ai-je interprété le besoin client et défini le périmètre fonctionnel ?</div>
+</div>
+
+<p>Le besoin du client est double : <strong>augmenter la visibilité</strong> (vitrine en ligne) et <strong>industrialiser la prise de commande</strong> (workflow). À partir des onze sections fonctionnelles décrites dans l'énoncé (page d'accueil, menu applicatif, pied de page, vue globale, création de compte, connexion, vue détaillée, commande, espaces utilisateur/employé/administrateur, contact), j'ai défini quatre rôles : <em>visiteur, utilisateur, employé, administrateur</em>, et un workflow de commande à huit statuts (en_attente, accepte, en_preparation, en_cours_de_livraison, livre, en_attente_retour_materiel, terminee, annulee).</p>
+
+<p>J'ai veillé à respecter strictement les <strong>règles métier exprimées</strong> : minimum de personnes par menu, remise -10% au-delà du minimum +5, livraison gratuite Bordeaux / 5€ + 0,59€/km hors Bordeaux, prêt de matériel avec restitution sous 10 jours ouvrés (sinon 600€ de frais), création de compte administrateur impossible depuis l'application.</p>
+
+<!-- ============================ Q2 ============================ -->
+<div class="question">
+  <div class="label">Question 2 — Choix techniques</div>
+  <div class="text">Pourquoi ai-je retenu cette stack ?</div>
+</div>
+
+<p>L'énoncé n'impose aucune technologie, à l'exception d'une <strong>base relationnelle</strong> et d'une <strong>base NoSQL</strong>. Mon raisonnement pour chaque brique :</p>
+
+<h3>Frontend : React + Vite + TypeScript + Tailwind</h3>
+<p><strong>React 18</strong> est l'écosystème front le plus mature en 2026. Sa courbe d'apprentissage est progressive et la communauté garantit la disponibilité des solutions à n'importe quel problème. <strong>Vite</strong> remplace les anciens outils (CRA, Webpack) avec un dev server de ~50 ms de hot reload et un build Rollup ultra-optimisé. <strong>TypeScript en mode strict</strong> élimine une part importante des bugs en runtime (typo de champ, undefined, etc.). <strong>Tailwind CSS</strong> me permet de tenir une cohérence visuelle stricte via les design tokens (palette, typo, spacing) tout en gardant un bundle CSS final minuscule grâce à la purge automatique. <strong>Framer Motion</strong> apporte les animations subtiles attendues pour le style éditorial (parallax hero, apparitions au scroll, transitions hover).</p>
+
+<p>Alternatives écartées : <em>Angular</em> trop opinionné pour un projet de cette taille ; <em>Vue</em> moins demandé sur le marché de l'emploi français ; <em>Next.js</em> overkill puisque nous n'avons besoin ni de SSR/SSG ni du file-system routing (le SEO du back-office n'a aucun intérêt).</p>
+
+<h3>Backend : Node.js + Express + TypeScript</h3>
+<p><strong>Node 24 + Express 4</strong> sont des piliers du back-end JavaScript et offrent un onboarding rapide pour tout développeur ou jury. Le code est <strong>en TypeScript strict</strong>, incluant <code>noUncheckedIndexedAccess</code> qui force la gestion des cas <code>undefined</code> sur les accès <code>req.user</code> ou <code>data?.field</code> — un filet de sécurité indispensable.</p>
+
+<p>J'ai choisi <strong>express-rate-limit + Helmet</strong> pour la sécurité, <strong>bcrypt</strong> (cost 12, ~250 ms par hash) pour le hashage des mots de passe et <strong>jsonwebtoken</strong> (HS256) pour la session stateless. <strong>Zod</strong> est utilisée pour la validation à la fois côté backend et frontend, ce qui me permet d'avoir un contrat unique sur la forme attendue des données (et la possibilité future de partager les schémas).</p>
+
+<p>Alternatives écartées : <em>PHP + PDO</em> est l'exemple proposé par Studi mais nécessiterait un environnement runtime différent, avec moins d'élégance pour le partage de types front/back ; <em>NestJS</em> aurait été un overkill structurel pour ce périmètre.</p>
+
+<h3>Base de données relationnelle : PostgreSQL via Supabase</h3>
+<p>J'ai retenu <strong>PostgreSQL 17</strong> (région Paris) plutôt que MySQL pour la robustesse de ses contraintes (<code>CHECK</code> natives, types ENUM stricts, transactions ACID parfaites). <strong>Supabase</strong> est l'hébergement managé qui offre un free tier généreux (500 MB), des backups automatiques et une API REST auto-générée (utilisée par le client JavaScript que j'utilise depuis Express).</p>
+
+<p>J'ai écrit <strong>les scripts SQL natifs</strong> moi-même (<code>database/migrations/001_initial_schema.sql</code> et <code>database/seed/001_demo_data.sql</code>) — conformément à l'exigence de l'énoncé. Aucune migration ORM n'est utilisée comme preuve de maîtrise.</p>
+
+<h3>Base de données NoSQL : MongoDB</h3>
+<p>L'énoncé impose une BDD non relationnelle pour le dashboard administrateur. J'ai choisi <strong>MongoDB</strong> : c'est le document store le plus enseigné dans les formations dev web (le jury Studi est familier), son <strong>aggregation pipeline</strong> est expressif (utilisé pour calculer en temps réel le nombre de commandes par menu et le CA), et le driver Node officiel est mature.</p>
+
+<p>En développement, j'utilise <code>mongodb-memory-server</code> (Mongo en mémoire, téléchargé à la première run) ce qui supprime toute friction de setup. En production, c'est MongoDB Atlas (cluster M0 free, sur la même région que Supabase pour limiter la latence). MongoDB est connectée de manière <strong>lazy</strong> côté backend : si l'URI n'est pas configurée, les fonctions d'audit deviennent silencieusement no-op (le métier principal n'est pas bloqué).</p>
+
+<h3>Mailer : Resend</h3>
+<p>Pour les 7 templates de mail (bienvenue, confirmation commande, changement de statut, retour matériel, invitation avis, reset password, accusé contact), j'ai retenu <strong>Resend</strong>. C'est une API moderne, free tier 100 mails/jour, qui ne nécessite ni configuration DNS ni gestion de queue pour notre volume.</p>
+
+<h3>Déploiement : Vercel pour tout</h3>
+<p>Pour minimiser la complexité opérationnelle, j'ai déployé <strong>les deux applications (front et back) sur Vercel</strong>. Le frontend est un build Vite statique servi via le CDN global. Le backend Express est <strong>wrappé en serverless function</strong> via un handler unique (<code>api/index.ts</code>) qui exporte l'app Express. Cette approche m'a évité de découper l'API en multiples files-as-functions.</p>
+
+<!-- ============================ Q3 ============================ -->
+<div class="question">
+  <div class="label">Question 3 — Modélisation</div>
+  <div class="text">Comment ai-je conçu le modèle de données et pourquoi ces choix ?</div>
+</div>
+
+<p>Le MCD est conforme à l'annexe 1 de l'énoncé et a été <strong>enrichi</strong> pour gérer le workflow complet (reset password, tokens, contact, audit). Le schéma comporte 15 tables, toutes en 3NF.</p>
+
+<p>Les choix structurants :</p>
+<ul>
+  <li><strong>menu_plat en N:N</strong> : l'énoncé précise qu'un plat peut être présent dans plusieurs menus. La table de jonction évite la duplication des plats.</li>
+  <li><strong>menu_regime en N:N</strong> : un menu peut être à la fois végétarien ET sans-gluten (la classification est flexible). L'énoncé invite d'ailleurs à <em>« alimenter d'avantage »</em> les régimes.</li>
+  <li><strong>plat_allergene en N:N</strong> : un plat peut contenir plusieurs allergènes, un allergène plusieurs plats.</li>
+  <li><strong>Contraintes CHECK</strong> sur les enums (statut, type de plat, jour de la semaine) — protection au niveau BDD complémentaire à la validation backend.</li>
+  <li><strong>Triggers <code>updated_at</code></strong> automatiques sur les tables critiques (utilisateur, menu, commande).</li>
+  <li><strong>Indexes</strong> sur les colonnes filtrées (email pour le login, est_actif pour la liste publique, statut pour le filtre employé).</li>
+  <li><strong>Table <code>password_reset_token</code></strong> avec expiration 1h et marquage <code>used_at</code> pour empêcher la réutilisation.</li>
+</ul>
+
+<!-- ============================ Q4 ============================ -->
+<div class="question">
+  <div class="label">Question 4 — Sécurité</div>
+  <div class="text">Quelles dispositions ai-je prises sur la sécurité ?</div>
+</div>
+
+<h3>Authentification</h3>
+<ul>
+  <li><strong>Hashage bcrypt cost 12</strong> (~250 ms par hash) — résistant aux attaques par GPU/ASIC. Aucun mot de passe en clair n'existe en mémoire au-delà de la durée de la requête.</li>
+  <li><strong>Politique de mot de passe</strong> exhaustive : 10 caractères minimum, ≥1 majuscule, ≥1 minuscule, ≥1 chiffre, ≥1 caractère spécial. Indicateur visuel temps réel dans le formulaire d'inscription. Validation côté front ET back (regex partagée).</li>
+  <li><strong>JWT signé HS256</strong> avec secret 64 caractères. Expiration 7 jours. Stocké en <code>localStorage</code> côté navigateur. Choix justifié : pas de session côté serveur (stateless), pas de CSRF par défaut. Limite acceptée : impossible de révoquer un JWT avant expiration — pour une production critique, j'ajouterais un mécanisme de refresh token + blacklist Redis.</li>
+  <li><strong>Reset password sécurisé</strong> : endpoint <code>/auth/request-reset</code> répond toujours 200 (anti-enumeration). Token cryptographique 48 bytes (crypto.randomBytes), valide 1h, marqué <code>used_at</code> après usage.</li>
+</ul>
+
+<h3>Brute force et abus</h3>
+<ul>
+  <li><strong>express-rate-limit</strong> : 10 tentatives / IP / 15 minutes sur <code>/api/auth/*</code>. Message HTTP 429 explicite.</li>
+  <li>Rate-limit global : 120 requêtes / minute par IP sur toute l'API.</li>
+</ul>
+
+<h3>Élévation de privilège</h3>
+<ul>
+  <li><strong>RBAC</strong> via middleware <code>requireRole('administrateur')</code>. Le rôle est dans le payload JWT, vérifié sur chaque requête.</li>
+  <li><strong>Création d'admin impossible depuis l'API</strong> — conformément à l'énoncé. José précise : <em>« vous devez lui créer ce compte et qu'il ne doit pas être possible de créer un compte Administrateur depuis l'application »</em>. Le compte admin est uniquement créé via le script SQL <code>seed/001_demo_data.sql</code>.</li>
+  <li>Le rôle n'est <strong>jamais</strong> dans le body de l'API d'inscription (mass assignment impossible).</li>
+</ul>
+
+<h3>Protection des entrées</h3>
+<table>
+  <tr><th>Risque OWASP</th><th>Mitigation</th></tr>
+  <tr><td>SQL Injection</td><td>Toutes les requêtes via le client Supabase (paramétrées). Aucune concaténation.</td></tr>
+  <tr><td>XSS</td><td>React échappe par défaut tout JSX. Pas de <code>dangerouslySetInnerHTML</code>. CSP via Helmet.</td></tr>
+  <tr><td>CSRF</td><td>API stateless avec JWT en Authorization header. Pas de cookie de session.</td></tr>
+  <tr><td>Mass assignment</td><td>Whitelist Zod sur chaque body. <code>role_id</code> jamais accepté.</td></tr>
+  <tr><td>Validation</td><td>Schémas Zod stricts (regex, length, enum).</td></tr>
+</table>
+
+<h3>En-têtes HTTP et CORS</h3>
+<p>Helmet active automatiquement : Content-Security-Policy, X-Frame-Options DENY, X-Content-Type-Options nosniff, Strict-Transport-Security, etc. CORS est configuré <strong>strict</strong> : seuls les sous-domaines <code>vite-et-gourmand*.vercel.app</code> et localhost sont autorisés.</p>
+
+<!-- ============================ Q5 ============================ -->
+<div class="question">
+  <div class="label">Question 5 — RGPD</div>
+  <div class="text">Comment l'application respecte-t-elle le RGPD ?</div>
+</div>
+
+<ul>
+  <li><strong>Données minimales</strong> : email, nom, prénom, téléphone, adresse, ville. Tout est nécessaire à la prestation (livraison + facturation + contact d'urgence). Pas de date de naissance ni de genre ou autre donnée non utile.</li>
+  <li><strong>Consentement</strong> à l'inscription (le formulaire mentionne explicitement l'acceptation des CGV et le traitement RGPD avec lien vers les mentions légales).</li>
+  <li><strong>Droit d'accès et de rectification</strong> : l'utilisateur peut modifier son profil depuis son espace.</li>
+  <li><strong>Droit à l'effacement</strong> : non automatisé dans l'interface (limitation assumée pour le périmètre ECF) mais documenté dans les mentions légales avec adresse email dédiée.</li>
+  <li><strong>Pas de cookies de suivi tiers</strong>. Le seul stockage navigateur est le JWT, à valeur fonctionnelle stricte — non soumis au consentement préalable.</li>
+  <li><strong>Hébergement UE</strong> : Supabase Paris (eu-west-3), Vercel a des edges UE pour les requêtes européennes.</li>
+  <li><strong>Mots de passe hashés bcrypt</strong> — jamais stockés en clair, jamais récupérables.</li>
+</ul>
+
+<!-- ============================ Q6 ============================ -->
+<div class="question">
+  <div class="label">Question 6 — Accessibilité</div>
+  <div class="text">Comment l'application respecte-t-elle le RGAA ?</div>
+</div>
+
+<ul>
+  <li><strong>Sémantique HTML5</strong> stricte (<code>header</code>, <code>nav</code>, <code>main</code>, <code>article</code>, <code>aside</code>, <code>footer</code>).</li>
+  <li><strong>Contrastes WCAG AA</strong> validés : cafe-900 (#2D1810) sur creme-200 (#F4ECDD) = ratio 12.4:1 ; bordeaux-700 (#6B1F2A) sur creme-200 = ratio 8.1:1.</li>
+  <li><strong>Navigation 100% clavier</strong> — focus visible (<code>:focus-visible</code> avec ring bordeaux + offset).</li>
+  <li><strong>Attributs <code>alt</code></strong> sur toutes les images.</li>
+  <li><strong>Labels associés</strong> à chaque <code>&lt;input&gt;</code>.</li>
+  <li><strong>Pas d'auto-play</strong>, pas de mouvement non contrôlable — la seule animation utilise <code>prefers-reduced-motion</code> (à enrichir).</li>
+  <li><strong>Lecteur d'écran</strong> : messages d'erreur Sonner ont des rôles ARIA implicites (aria-live polite).</li>
+  <li><strong>Responsive</strong> mobile-first jusqu'à 320px de large.</li>
+</ul>
+
+<!-- ============================ Q7 ============================ -->
+<div class="question">
+  <div class="label">Question 7 — Mise en œuvre des filtres dynamiques</div>
+  <div class="text">Comment ai-je implémenté les filtres "sans rechargement de page" ?</div>
+</div>
+
+<p>L'énoncé exige : <em>« il est nécessaire d'actualiser les menus affichés de manière dynamique (sans rechargement de page) »</em>.</p>
+<p>Mon implémentation :</p>
+<ul>
+  <li>Chaque filtre (prix min/max, nombre personnes, thème, régime) est un <code>useState</code> React.</li>
+  <li>Un <code>useEffect</code> écoute les changements de filtres et déclenche un <code>fetch</code> vers <code>/api/menus?prix_max=...&amp;theme=...</code>.</li>
+  <li>Un <code>AbortController</code> annule la requête précédente si l'utilisateur change de filtre avant la fin de la réponse — évite les race conditions.</li>
+  <li>L'API backend construit dynamiquement la requête Supabase en fonction des params (chaînage <code>.gte()</code>, <code>.lte()</code>, etc.).</li>
+  <li>Le résultat met à jour l'état React → React re-render la grille avec une animation <code>AnimatePresence</code> de Framer Motion (apparition / disparition fluide).</li>
+</ul>
+
+<!-- ============================ Q8 ============================ -->
+<div class="question">
+  <div class="label">Question 8 — Workflow de commande</div>
+  <div class="text">Comment ai-je géré le workflow complet (8 statuts, mails, audit) ?</div>
+</div>
+
+<p>Le workflow est documenté en backend dans <code>commande.routes.ts</code>. Le passage d'un statut à un autre est <strong>guidé</strong> côté frontend (l'employé ne voit que les transitions autorisées par le statut actuel).</p>
+
+<p>À chaque changement de statut :</p>
+<ol>
+  <li><strong>Mise à jour PostgreSQL</strong> : <code>UPDATE commande SET statut = X WHERE commande_id = Y</code>.</li>
+  <li><strong>Audit MongoDB</strong> : insertion d'un document <code>order_events</code> avec previous_statut, new_statut, actor_role, actor_id, metadata. Ce log alimente :
+    <ul>
+      <li>l'historique visible dans l'espace utilisateur (suivi de commande détaillé) ;</li>
+      <li>les agrégations du dashboard administrateur (commandes par menu, CA).</li>
+    </ul>
+  </li>
+  <li><strong>Email automatique</strong> au client via Resend (template "status changed").</li>
+  <li><strong>Mail conditionnel</strong> selon le nouveau statut :
+    <ul>
+      <li><code>en_attente_retour_materiel</code> → mail dédié rappelant les 10 jours ouvrés et la facturation de 600€ ;</li>
+      <li><code>terminee</code> → mail d'invitation à donner un avis.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>L'utilisateur ne peut annuler que tant que le statut est <code>en_attente</code>. L'employé peut annuler à tout moment, à condition de saisir un motif et un mode de contact (GSM ou mail).</p>
+
+<!-- ============================ Q9 ============================ -->
+<div class="question">
+  <div class="label">Question 9 — Déploiement</div>
+  <div class="text">Quelle est ma stratégie de déploiement et de mise en production ?</div>
+</div>
+
+<p>Le client exigeait explicitement le déploiement (<em>« des pénalités seront appliquées si l'application n'est pas en ligne »</em>). L'application est aujourd'hui déployée et opérationnelle 24/7 :</p>
+<table>
+  <tr><th>Couche</th><th>Hébergeur</th><th>URL</th></tr>
+  <tr><td>Frontend</td><td>Vercel (CDN)</td><td>vite-et-gourmand-drab.vercel.app</td></tr>
+  <tr><td>Backend</td><td>Vercel (serverless)</td><td>vite-et-gourmand-api-three.vercel.app/api</td></tr>
+  <tr><td>BDD relationnelle</td><td>Supabase (Paris)</td><td>uwzagqbyauuvivcvhxye.supabase.co</td></tr>
+  <tr><td>BDD NoSQL</td><td>MongoDB Atlas</td><td>(M0 free, prod)</td></tr>
+  <tr><td>Mailer</td><td>Resend</td><td>(API)</td></tr>
+</table>
+
+<p>L'avantage de ce setup : déploiement <strong>git push → auto-build → live en 90s</strong>. Pas de Docker, pas de Kubernetes, pas de CI/CD à maintenir — le minimum viable. Les secrets sont gérés via le dashboard Vercel (chiffrés au repos).</p>
+
+<p>Pour le gitflow, j'ai respecté la structure attendue :</p>
+<ul>
+  <li><code>main</code> : branche stable, reflet de la production.</li>
+  <li><code>develop</code> : branche d'intégration.</li>
+  <li><code>feature/database-schema</code> : branche de développement (qui contient le scaffolding initial complet — sur un projet d'équipe, j'aurais subdivisé en feature/auth, feature/menus, etc.).</li>
+</ul>
+
+<!-- ============================ CONCLUSION ============================ -->
+<h1>Conclusion</h1>
+
+<p>L'application <strong>« Vite &amp; Gourmand »</strong> répond à l'intégralité des fonctionnalités attendues par le client et démontre ma maîtrise des deux activités-types du référentiel TP-DWWM. Les choix techniques sont justifiés, les contraintes RGPD et RGAA sont prises en compte, et la sécurité (OWASP, hashage, rate limiting, JWT) est documentée et opérationnelle.</p>
+
+<p>Le projet est livré <strong>déployé, fonctionnel et testable</strong> sans aucun setup préalable grâce aux comptes de démonstration. Le code source est public sur GitHub, les bonnes pratiques git sont respectées (branches, commits conventionnels). La documentation complète (technique, manuel utilisateur, gestion de projet, charte graphique) est fournie en annexe.</p>
+
+<h2>Pistes d'amélioration identifiées</h2>
+<p>Pour une montée en production réelle au-delà de l'ECF, j'identifie les évolutions suivantes :</p>
+<ul>
+  <li><strong>Tests automatisés</strong> : ajout de tests d'intégration Vitest sur les routes critiques et tests E2E Playwright pour les parcours utilisateur.</li>
+  <li><strong>CI/CD</strong> : pipeline GitHub Actions (lint + typecheck + tests + déploiement).</li>
+  <li><strong>Monitoring</strong> : intégration Sentry (front + back) pour le suivi des erreurs en production.</li>
+  <li><strong>Paiement en ligne</strong> : intégration Stripe avec acompte à la commande.</li>
+  <li><strong>PWA</strong> : version mobile installable pour les usages des employés sur le terrain.</li>
+  <li><strong>Refresh tokens</strong> : système plus robuste pour la révocation des sessions JWT.</li>
+  <li><strong>Calcul de distance réel</strong> via l'API Google Maps pour le coût de livraison hors Bordeaux.</li>
+</ul>
+
+<p style="margin-top: 30pt; text-align: right; font-style: italic; color: var(--bordeaux);">Jassim Elghaouti — Mai 2026</p>
+
+</body>
+</html>

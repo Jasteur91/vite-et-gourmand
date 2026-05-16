@@ -19,8 +19,8 @@ const pages = [
 ];
 
 const viewports = [
-  { name: 'desktop', w: 1440, h: 900, scale: 2 },
-  { name: 'mobile', w: 390, h: 844, scale: 3 },
+  { name: 'desktop', w: 1440, h: 900, scale: 1 },
+  { name: 'mobile', w: 390, h: 844, scale: 1.5 },
 ];
 
 async function main() {
@@ -42,8 +42,10 @@ async function main() {
       await page.evaluate(() => window.scrollTo(0, 0));
       await new Promise((r) => setTimeout(r, 800));
       await page.screenshot({
-        path: `./out/${vp.name}-${p.name}.png`,
+        path: `./out/${vp.name}-${p.name}.jpg`,
         fullPage: true,
+        type: 'jpeg',
+        quality: 80,
       });
     }
     await page.close();

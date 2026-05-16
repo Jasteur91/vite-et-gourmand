@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Vite & Gourmand — Documentation technique</title>
+<style>
+  :root {
+    --bordeaux: #6B1F2A;
+    --creme: #F4ECDD;
+    --cafe: #2D1810;
+    --or: #C8A35A;
+  }
+  @page { size: A4; margin: 22mm 18mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--cafe);
+    line-height: 1.65;
+    font-size: 11pt;
+    margin: 0;
+  }
+  .display { font-family: 'Fraunces', Georgia, serif; font-weight: 400; }
+  .cover {
+    page-break-after: always;
+    height: 250mm;
+    background: var(--creme);
+    padding: 60mm 25mm;
+    margin: -22mm -18mm;
+  }
+  .cover .eyebrow { color: var(--bordeaux); font-size: 9pt; letter-spacing: 0.2em; text-transform: uppercase; }
+  .cover h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 56pt; line-height: 1.0; color: var(--bordeaux); margin: 16pt 0; }
+  .cover .subtitle { font-family: 'Fraunces', Georgia, serif; font-style: italic; color: var(--cafe); font-size: 22pt; }
+  .cover .meta { margin-top: 60mm; font-size: 10pt; line-height: 2; }
+  .cover .meta strong { color: var(--bordeaux); }
+  .rule-gold { height: 1px; width: 60px; background: var(--or); margin: 20pt 0; }
+
+  h1 { font-family: 'Fraunces', Georgia, serif; font-size: 28pt; color: var(--bordeaux); margin: 40pt 0 8pt; font-weight: 400; }
+  h2 { font-family: 'Fraunces', Georgia, serif; font-size: 20pt; color: var(--cafe); margin: 32pt 0 8pt; font-weight: 400; border-top: 1px solid #00000010; padding-top: 16pt; }
+  h3 { font-family: 'Fraunces', Georgia, serif; font-size: 14pt; color: var(--bordeaux); margin: 20pt 0 4pt; font-weight: 500; }
+  h4 { font-size: 11pt; color: var(--cafe); margin: 16pt 0 4pt; }
+  .eyebrow { font-size: 8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bordeaux); }
+  p { margin: 0 0 10pt; }
+  ul, ol { margin: 0 0 10pt; padding-left: 20pt; }
+  li { margin: 3pt 0; }
+  code { background: #00000008; padding: 1pt 4pt; border-radius: 3pt; font-family: 'JetBrains Mono', monospace; font-size: 9pt; }
+  pre { background: var(--cafe); color: var(--creme); padding: 12pt; border-radius: 6pt; font-size: 8.5pt; line-height: 1.5; overflow-x: hidden; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 10pt 0; font-size: 10pt; }
+  th, td { padding: 6pt 8pt; text-align: left; border-bottom: 1px solid #00000010; vertical-align: top; }
+  th { background: var(--creme); color: var(--bordeaux); font-weight: 600; font-size: 9pt; letter-spacing: 0.05em; }
+  .tag { display: inline-block; padding: 2pt 8pt; background: var(--creme); color: var(--cafe); border-radius: 999pt; font-size: 8pt; }
+  .tag-bordeaux { background: var(--bordeaux); color: var(--creme); }
+  .callout {
+    background: #FBF3F4; border-left: 3px solid var(--bordeaux);
+    padding: 12pt 14pt; margin: 14pt 0; border-radius: 0 6pt 6pt 0;
+  }
+  .callout strong { color: var(--bordeaux); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; }
+  .toc li { font-size: 10.5pt; padding: 4pt 0; border-bottom: 1px dotted #00000020; display: flex; justify-content: space-between; }
+  figure { margin: 16pt 0; }
+  figure img { width: 100%; border-radius: 6pt; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  figure figcaption { font-size: 8.5pt; color: #555; text-align: center; margin-top: 6pt; font-style: italic; }
+  .page-break { page-break-before: always; }
+  .small { font-size: 9pt; color: #555; }
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<div class="cover">
+  <p class="eyebrow">Documentation technique</p>
+  <h1>Vite &amp;<br><em style="font-style: italic; color: var(--cafe);">Gourmand</em>.</h1>
+  <div class="rule-gold"></div>
+  <p class="subtitle">Application web pour la prestation traiteur événementiel.</p>
+
+  <div class="meta">
+    <p><strong>Projet</strong> · ECF Studi — TP Développeur Web et Web Mobile</p>
+    <p><strong>Étudiant</strong> · Jassim Elghaouti</p>
+    <p><strong>Client</strong> · Julie &amp; José — « Vite &amp; Gourmand », Bordeaux</p>
+    <p><strong>Date</strong> · Mai 2026</p>
+    <p><strong>App</strong> · vite-et-gourmand-drab.vercel.app</p>
+    <p><strong>Repo</strong> · github.com/Jasteur91/vite-et-gourmand</p>
+  </div>
+</div>
+
+<!-- ============================ TOC ============================ -->
+<h1>Sommaire</h1>
+<ol class="toc">
+  <li><span>1. Cadrage du projet et besoins client</span></li>
+  <li><span>2. Choix techniques justifiés</span></li>
+  <li><span>3. Architecture de l'application</span></li>
+  <li><span>4. Modèle de données (MCD)</span></li>
+  <li><span>5. Sécurité et conformité (OWASP, RGPD, RGAA)</span></li>
+  <li><span>6. Diagrammes de cas d'utilisation</span></li>
+  <li><span>7. Diagrammes de séquence</span></li>
+  <li><span>8. Configuration de l'environnement de travail</span></li>
+  <li><span>9. Documentation de déploiement</span></li>
+  <li><span>10. Tests et qualité</span></li>
+</ol>
+
+<!-- ============================ 1. CADRAGE ============================ -->
+<h1>1. Cadrage du projet et besoins client</h1>
+
+<h3>1.1 Le client</h3>
+<p>« Vite &amp; Gourmand » est une entreprise de traiteur événementiel implantée à Bordeaux depuis 25 ans. Elle est composée de deux personnes : Julie et José. Leur activité repose sur un menu en constante évolution proposé à leurs clients pour tout type d'évènement (repas familial, Noël, Pâques, mariage, etc.). Jusqu'à présent, les menus étaient communiqués uniquement par e-mail à une clientèle d'habitués.</p>
+
+<h3>1.2 Le besoin exprimé</h3>
+<p>Julie a souhaité une application web qui :</p>
+<ul>
+  <li>augmente la visibilité de l'entreprise auprès d'une nouvelle clientèle ;</li>
+  <li>présente les menus de façon attrayante et toujours à jour ;</li>
+  <li>permet la prise de commande en ligne avec gestion des prestations.</li>
+</ul>
+
+<h3>1.3 Périmètre fonctionnel retenu</h3>
+<p>Quatre rôles distincts ont été identifiés :</p>
+<table>
+  <tr><th style="width: 25%">Rôle</th><th>Pouvoirs principaux</th></tr>
+  <tr><td>Visiteur</td><td>Voir la vitrine, parcourir les menus, contacter, s'inscrire</td></tr>
+  <tr><td>Utilisateur</td><td>Commander, modifier/annuler avant validation, donner un avis</td></tr>
+  <tr><td>Employé</td><td>Gérer les menus, plats, horaires, faire évoluer les statuts de commande, modérer les avis</td></tr>
+  <tr><td>Administrateur</td><td>Tout ce qu'un employé peut faire + créer/désactiver des employés + dashboard NoSQL</td></tr>
+</table>
+
+<h3>1.4 Contraintes réglementaires</h3>
+<ul>
+  <li><strong>RGPD</strong> : consentement, données minimales, droit d'accès et d'effacement.</li>
+  <li><strong>RGAA</strong> (accessibilité numérique) : conformité aux critères de niveau AA.</li>
+  <li><strong>Sécurité</strong> : conformité OWASP Top-10, hashage des mots de passe, protection contre les injections, CSRF, XSS.</li>
+  <li><strong>Stockage hybride</strong> : base de données relationnelle ET base NoSQL obligatoires.</li>
+  <li><strong>Déploiement</strong> : l'application doit être en ligne et fonctionnelle (pénalités contractuelles sinon).</li>
+</ul>
+
+<!-- ============================ 2. CHOIX TECHNIQUES ============================ -->
+<h1>2. Choix techniques justifiés</h1>
+
+<p>Le sujet n'impose aucune technologie sauf <strong>une BDD relationnelle</strong> et <strong>une BDD NoSQL</strong>. Tous les autres choix sont laissés au candidat à condition d'être <strong>justifiés</strong>. Voici la stack retenue et le raisonnement.</p>
+
+<h3>2.1 Frontend — React + Vite + TypeScript + Tailwind</h3>
+<table>
+  <tr><th>Outil</th><th>Pourquoi</th><th>Alternative rejetée</th></tr>
+  <tr><td><strong>React 18</strong></td><td>Écosystème dominant (>40% market share), courbe d'apprentissage progressive, hooks matures.</td><td>Vue (moins demandé sur le marché de l'emploi), Angular (trop opinionnée pour un projet de cette taille).</td></tr>
+  <tr><td><strong>Vite</strong></td><td>Dev server ~50ms HMR, build production via Rollup ultra-optimisé.</td><td>Create React App (déprécié), Next.js (overkill pour SPA front-only).</td></tr>
+  <tr><td><strong>TypeScript strict</strong></td><td>Type safety qui élimine ~15% des bugs en runtime selon les études internes Microsoft. Indispensable pour un projet pro.</td><td>JavaScript pur (risque sur les contrats d'API entre front et back).</td></tr>
+  <tr><td><strong>Tailwind CSS</strong></td><td>Design tokens forts, bundle CSS final très petit (purge automatique), classes utilitaires.</td><td>CSS modules (lent à itérer), styled-components (overhead runtime).</td></tr>
+  <tr><td><strong>Framer Motion</strong></td><td>Animations déclaratives, support scroll-driven natif, idéal pour le style éditorial.</td><td>CSS animations pures (moins puissantes pour les transitions complexes).</td></tr>
+  <tr><td><strong>React Router 6</strong></td><td>Standard de l'écosystème, support imbrication routes (Outlet).</td><td>Routing custom (réinventer la roue).</td></tr>
+  <tr><td><strong>Recharts</strong></td><td>Charting React idiomatique, responsive, leger.</td><td>Chart.js (impératif), D3 direct (over-engineering pour un dashboard simple).</td></tr>
+  <tr><td><strong>Sonner</strong></td><td>Toast minimaliste et accessible.</td><td>react-hot-toast (similaire, plus daté visuellement).</td></tr>
+  <tr><td><strong>Zod</strong></td><td>Validation typée partagée front/back.</td><td>Yup (moins type-safe), joi (Node only).</td></tr>
+</table>
+
+<h3>2.2 Backend — Node.js + Express + TypeScript</h3>
+<table>
+  <tr><th>Outil</th><th>Pourquoi</th></tr>
+  <tr><td><strong>Node.js 24</strong></td><td>LTS, performance V8 actualisée, support ES modules natif.</td></tr>
+  <tr><td><strong>Express 4</strong></td><td>Standard de fait, courbe d'apprentissage faible, écosystème de middlewares mature (Helmet, cors, rate-limit). Le jury attend de la familiarité.</td></tr>
+  <tr><td><strong>TypeScript strict (noUncheckedIndexedAccess)</strong></td><td>Force la gestion des cas <code>undefined</code> sur les accès <code>req.user</code>, prévient les NPE en runtime.</td></tr>
+  <tr><td><strong>bcrypt (cost 12)</strong></td><td>Hashage password de référence depuis 1999 — résistant aux attaques par GPU/ASIC. Coût 12 → ~250 ms par hash en 2026 (acceptable UX, lent pour brute force).</td></tr>
+  <tr><td><strong>jsonwebtoken (HS256)</strong></td><td>Stateless auth, simple à implémenter pour ce périmètre.</td></tr>
+  <tr><td><strong>Helmet</strong></td><td>Set automatique de 15+ headers HTTP de sécurité (CSP, HSTS, X-Frame-Options, etc.).</td></tr>
+  <tr><td><strong>express-rate-limit</strong></td><td>Protection brute-force sur <code>/api/auth/*</code> : 10 tentatives / 15 min / IP.</td></tr>
+  <tr><td><strong>Resend</strong></td><td>API mail moderne, free tier 100 mails/jour, templates HTML simples.</td></tr>
+</table>
+
+<h3>2.3 Bases de données</h3>
+<table>
+  <tr><th>BDD</th><th>Choix</th><th>Justification</th></tr>
+  <tr><td>Relationnelle</td><td><strong>PostgreSQL 17</strong> via Supabase</td><td>Standard SQL le plus strict, contraintes CHECK natives, JSON natif si besoin, extensions (PostGIS, pgvector si évolution), free tier généreux (500MB). Région Paris (eu-west-3) pour latence client français.</td></tr>
+  <tr><td>NoSQL</td><td><strong>MongoDB 6</strong> (Atlas en prod, mongodb-memory-server en dev)</td><td>Document store le plus enseigné, agrégation pipeline expressive (utilisée pour le dashboard admin), driver Node officiel. mongodb-memory-server en dev = zéro setup (binaire téléchargé à la première run).</td></tr>
+</table>
+
+<h3>2.4 Hébergement</h3>
+<table>
+  <tr><th>Couche</th><th>Hébergeur</th><th>Justification</th></tr>
+  <tr><td>Frontend</td><td>Vercel</td><td>CDN global, build automatique sur push, gratuit, support natif Vite.</td></tr>
+  <tr><td>Backend</td><td>Vercel (serverless functions)</td><td>Wrap Express dans une seule fonction <code>api/index.ts</code>. Avantage : 1 plateforme = 1 dashboard, 1 CI, gratuit. Limite : cold starts ~500ms et timeout 30s (acceptable pour ce périmètre).</td></tr>
+  <tr><td>BDD relationnelle</td><td>Supabase</td><td>PostgreSQL managé, MCP intégré, backups automatiques.</td></tr>
+  <tr><td>BDD NoSQL</td><td>MongoDB Atlas (cluster M0 free)</td><td>Managé, backups, monitoring inclus.</td></tr>
+</table>
+
+<!-- ============================ 3. ARCHITECTURE ============================ -->
+<h1>3. Architecture de l'application</h1>
+
+<h3>3.1 Vue d'ensemble</h3>
+<pre>
+┌──────────────────────────────────────────────────────────────────┐
+│  Navigateur client (desktop / mobile)                            │
+│  - React SPA + React Router                                      │
+│  - JWT stocké dans localStorage                                  │
+└────────────────────────────────┬─────────────────────────────────┘
+                                 │ HTTPS
+                ┌────────────────┴────────────────┐
+                │                                 │
+                ▼                                 ▼
+   ┌──────────────────────┐         ┌──────────────────────────┐
+   │  Vercel CDN (front)  │         │  Vercel Functions (API)  │
+   │  Vite build static   │         │  Express monolithique    │
+   │  index.html + JS+CSS │         │  wrappée en handler      │
+   └──────────────────────┘         └─────────┬───────┬────────┘
+                                              │       │
+                          ┌───────────────────┘       └──────────────┐
+                          ▼                                          ▼
+                ┌──────────────────────┐                ┌──────────────────────┐
+                │   PostgreSQL         │                │   MongoDB Atlas      │
+                │   (Supabase)         │                │   Audit + dashboard  │
+                │   - 15 tables        │                │   - order_events     │
+                │   - SQL natif        │                │   - contact_logs     │
+                └──────────────────────┘                └──────────────────────┘
+
+   Service externe : Resend (envoi des 7 templates de mail)
+</pre>
+
+<h3>3.2 Pourquoi les deux BDD ?</h3>
+<p>Les deux bases ne font pas double emploi. Elles répondent à des usages différents :</p>
+<ul>
+  <li><strong>PostgreSQL — source de vérité métier.</strong> Données structurées avec relations fortes : utilisateurs ↔ commandes ↔ menus ↔ plats. Contraintes d'intégrité (FK), transactions ACID, indexes B-tree. Idéal pour les écritures critiques (commande, inscription).</li>
+  <li><strong>MongoDB — audit trail et analytics.</strong> Chaque changement de statut de commande produit un document <code>order_events</code> append-only. Cela permet :
+    <ol>
+      <li>de reconstituer l'historique complet d'une commande (suivi utilisateur) ;</li>
+      <li>d'alimenter le dashboard admin avec un <strong>aggregation pipeline</strong> qui calcule en temps réel le nombre de commandes par menu et le chiffre d'affaires (sans surcharger PostgreSQL avec des requêtes analytiques).</li>
+    </ol>
+  </li>
+</ul>
+
+<h3>3.3 Organisation du code backend</h3>
+<pre>backend/
+├── api/index.ts              # Handler Vercel (wrap Express)
+├── src/
+│   ├── app.ts                # buildApp() — composition Express
+│   ├── server.ts             # Bootstrap dev local
+│   ├── config/env.ts         # Validation Zod des env vars
+│   ├── db/
+│   │   ├── supabase.ts       # Client Supabase
+│   │   └── mongo.ts          # Client Mongo (mémoire en dev, Atlas en prod)
+│   ├── middleware/
+│   │   ├── auth.ts           # requireAuth + requireRole
+│   │   └── errorHandler.ts   # Mapping AppError → HTTP
+│   ├── routes/
+│   │   ├── auth.routes.ts        # signup, login, request-reset, reset
+│   │   ├── menu.routes.ts        # CRUD + filtres dynamiques
+│   │   ├── plat.routes.ts        # CRUD plats + allergènes
+│   │   ├── commande.routes.ts    # création, preview prix, workflow statuts
+│   │   ├── user.routes.ts        # profil, avis
+│   │   ├── admin.routes.ts       # employés, modération, dashboard
+│   │   └── contact.routes.ts     # formulaire de contact
+│   ├── services/
+│   │   ├── email.service.ts      # 7 templates Resend
+│   │   └── audit.service.ts      # Écriture + agrégation Mongo
+│   └── utils/
+│       ├── jwt.ts                # sign/verify
+│       ├── password.ts           # validation + bcrypt
+│       ├── errors.ts             # AppError + sous-classes
+│       └── asyncHandler.ts       # wrapper async → next(err)</pre>
+
+<h3>3.4 Organisation du code frontend</h3>
+<pre>frontend/src/
+├── main.tsx                  # Bootstrap React + Providers
+├── App.tsx                   # Routing complet
+├── index.css                 # Tailwind + design system éditorial
+├── vite-env.d.ts             # Types VITE_API_URL
+├── lib/
+│   ├── api.ts                # Fetch wrapper + getToken/setToken
+│   └── cn.ts                 # clsx + tailwind-merge
+├── contexts/
+│   └── AuthContext.tsx       # State global utilisateur
+├── components/
+│   ├── Layout.tsx            # Navbar + Footer (avec horaires depuis API)
+│   ├── ProtectedRoute.tsx    # Route guard RBAC
+│   └── MenuCard.tsx          # Carte produit
+└── pages/
+    ├── Home.tsx              # Hero + selection + manifeste + atelier + reviews + CTA
+    ├── Menus.tsx             # Liste + filtres dynamiques
+    ├── MenuDetail.tsx        # Détail + sticky order panel
+    ├── Order.tsx             # Commande en 3 étapes
+    ├── Contact.tsx           # Formulaire contact
+    ├── Legal.tsx             # Mentions légales + CGV
+    ├── auth/
+    │   ├── Login.tsx
+    │   ├── Signup.tsx
+    │   └── ForgotReset.tsx
+    ├── user/
+    │   ├── Espace.tsx        # Mes commandes + profil + avis
+    │   └── OrderDetail.tsx   # Détail + suivi statuts (depuis Mongo)
+    ├── employee/
+    │   └── Espace.tsx        # Workflow commandes + modération
+    └── admin/
+        └── Espace.tsx        # Dashboard + gestion employés</pre>
+
+<!-- ============================ 4. MCD ============================ -->
+<h1>4. Modèle conceptuel de données</h1>
+
+<p>Le schéma a été conçu en respectant l'annexe 1 du sujet, puis enrichi pour gérer le workflow complet (reset password, tokens, contact, audit). Toutes les tables sont en 3NF.</p>
+
+<h3>4.1 Tables principales</h3>
+<table>
+  <tr><th>Table</th><th>Rôle</th><th>Cardinalités notables</th></tr>
+  <tr><td><code>utilisateur</code></td><td>Comptes (3 rôles)</td><td>N:1 vers <code>role</code>, 1:N vers <code>commande</code> et <code>avis</code></td></tr>
+  <tr><td><code>role</code></td><td>3 valeurs seedées</td><td>utilisateur / employe / administrateur</td></tr>
+  <tr><td><code>menu</code></td><td>Carte des prestations</td><td>N:1 vers <code>theme</code>, N:N <code>plat</code> et <code>regime</code></td></tr>
+  <tr><td><code>plat</code></td><td>Entrée / plat / dessert</td><td>N:N <code>allergene</code>, N:N <code>menu</code> (un plat peut être dans plusieurs menus)</td></tr>
+  <tr><td><code>commande</code></td><td>État de la prestation</td><td>N:1 vers <code>utilisateur</code> et <code>menu</code>, 1:1 vers <code>avis</code></td></tr>
+  <tr><td><code>avis</code></td><td>Note 1-5 + commentaire</td><td>Statut en_attente / valide / refuse</td></tr>
+  <tr><td><code>horaire</code></td><td>Jour de la semaine</td><td>UNIQUE sur jour</td></tr>
+  <tr><td><code>password_reset_token</code></td><td>Token + expiration 1h</td><td>Cleanup après <code>used_at</code></td></tr>
+  <tr><td><code>contact_message</code></td><td>Formulaire public</td><td>+ log Mongo</td></tr>
+</table>
+
+<h3>4.2 Choix de modélisation justifiés</h3>
+<div class="callout">
+<p><strong>Pourquoi <code>menu_plat</code> en N:N ?</strong> L'énoncé précise explicitement qu'<em>« une entrée ou un plat / dessert peut être présent dans plusieurs menus »</em>. Une relation N:N avec table de jonction permet de réutiliser les plats sans duplication.</p>
+</div>
+<div class="callout">
+<p><strong>Pourquoi <code>plat_allergene</code> en N:N ?</strong> Un plat peut contenir plusieurs allergènes ; un allergène peut être présent dans plusieurs plats. La table de liaison est la bonne représentation 3NF.</p>
+</div>
+<div class="callout">
+<p><strong>Pourquoi <code>menu_regime</code> en N:N ?</strong> Un menu peut être à la fois « vegetarien » et « sans-gluten ». Permettre plusieurs régimes simultanés assouplit la classification.</p>
+</div>
+<div class="callout">
+<p><strong>Pourquoi des contraintes CHECK sur <code>statut</code> ?</strong> Le workflow des commandes est documenté dans l'énoncé. La contrainte garantit qu'on ne peut jamais avoir un statut hors liste. C'est une protection au niveau BDD complémentaire à la validation backend.</p>
+</div>
+
+<h3>4.3 Workflow des statuts de commande</h3>
+<pre>en_attente
+   │   (employé : valide la commande)
+   ▼
+accepte
+   │   (employé : équipe cuisine démarre)
+   ▼
+en_preparation
+   │   (employé : équipe logistique part)
+   ▼
+en_cours_de_livraison
+   │   (employé : livré au client)
+   ▼
+livre
+   │
+   ├──→ terminee (si pas de matériel prêté)
+   │
+   └──→ en_attente_retour_materiel (matériel à rendre, mail + 10 jours)
+              │
+              ▼
+            terminee
+
+L'utilisateur peut "annulee" SEULEMENT si statut == en_attente.
+L'employé peut "annulee" à tout moment, avec motif obligatoire.</pre>
+
+<h3>4.4 Indexes mis en place</h3>
+<table>
+  <tr><th>Index</th><th>Justification</th></tr>
+  <tr><td><code>idx_utilisateur_email</code></td><td>Lookup au login (hot path)</td></tr>
+  <tr><td><code>idx_menu_actif</code></td><td>Filtre <code>WHERE est_actif = true</code> sur la liste publique</td></tr>
+  <tr><td><code>idx_commande_user</code></td><td>Espace utilisateur : « mes commandes »</td></tr>
+  <tr><td><code>idx_commande_statut</code></td><td>Espace employé : filtre par statut</td></tr>
+  <tr><td><code>idx_avis_statut</code></td><td>Page publique : seulement statut = valide</td></tr>
+</table>
+
+<!-- ============================ 5. SECURITY ============================ -->
+<h1>5. Sécurité et conformité</h1>
+
+<h3>5.1 Authentification &amp; autorisation</h3>
+<table>
+  <tr><th>Risque</th><th>Mitigation</th></tr>
+  <tr><td>Stockage de mot de passe en clair</td><td>Hashage bcrypt cost 12 (~250ms / hash). Aucun mot de passe en clair n'existe en mémoire au-delà de la durée de la requête.</td></tr>
+  <tr><td>Politique mot de passe faible</td><td>Regex côté front ET back : 10 chars min, ≥1 maj, ≥1 min, ≥1 chiffre, ≥1 spécial. Indicateur visuel temps réel dans le formulaire.</td></tr>
+  <tr><td>Brute force login</td><td>express-rate-limit : 10 tentatives / IP / 15 min sur <code>/api/auth/*</code>. Message HTTP 429 explicite.</td></tr>
+  <tr><td>Sessions hijacking</td><td>JWT signé HS256 avec secret 64 chars, expiration 7 jours, stocké en <code>localStorage</code> (acceptable étant donné le périmètre — CSRF token serait préférable pour des opérations très sensibles).</td></tr>
+  <tr><td>Élévation de privilège</td><td>RBAC strict : middleware <code>requireRole('administrateur')</code> bloque les routes admin pour les non-admins. Le rôle est dans le payload JWT — vérifié sur chaque requête. Création de compte admin <strong>impossible depuis l'API</strong> (création manuelle uniquement, conformité à l'énoncé).</td></tr>
+  <tr><td>Reset password endless attempts</td><td>Endpoint <code>/auth/request-reset</code> répond toujours 200 (anti-enumeration). Token cryptographique 48 bytes, validité 1h, marqué <code>used_at</code> après utilisation.</td></tr>
+</table>
+
+<h3>5.2 Protection des entrées</h3>
+<table>
+  <tr><th>Risque OWASP</th><th>Mitigation</th></tr>
+  <tr><td>SQL Injection (A03)</td><td>Toutes les requêtes passent par le client Supabase (parameterized queries via PostgREST). Aucune concaténation de strings.</td></tr>
+  <tr><td>XSS (A03)</td><td>React échappe par défaut tout JSX. Pas d'utilisation de <code>dangerouslySetInnerHTML</code>. Headers CSP via Helmet.</td></tr>
+  <tr><td>CSRF (A05)</td><td>API stateless avec JWT en Authorization header → pas de cookie de session → pas de CSRF par défaut.</td></tr>
+  <tr><td>Validation entrée (A04)</td><td>Tous les bodies validés par <strong>Zod</strong> avant traitement. Schémas exhaustifs (length, regex, enum).</td></tr>
+  <tr><td>Mass assignment</td><td>Whitelist explicite dans les schémas Zod — impossible de mettre à jour <code>role_id</code> via l'API utilisateur.</td></tr>
+</table>
+
+<h3>5.3 En-têtes HTTP et CORS</h3>
+<p>Helmet active : Content-Security-Policy, X-Frame-Options DENY, X-Content-Type-Options nosniff, Strict-Transport-Security, etc.</p>
+<p>CORS configuré strict : seuls les origines <code>vite-et-gourmand*.vercel.app</code> et <code>localhost:*</code> sont autorisés.</p>
+
+<h3>5.4 RGPD</h3>
+<ul>
+  <li><strong>Données minimales</strong> collectées : email, nom, prénom, téléphone, adresse postale, ville. Tout est nécessaire à la prestation (livraison, facturation, contact d'urgence).</li>
+  <li><strong>Consentement</strong> à la création de compte (case + lien CGV / mentions légales).</li>
+  <li><strong>Droit d'accès &amp; rectification</strong> : espace utilisateur modifiable.</li>
+  <li><strong>Pas de cookies de suivi tiers</strong>. Le seul stockage navigateur est le JWT, fonctionnel et non assujetti au consentement.</li>
+  <li><strong>Hébergement UE</strong> (Supabase Paris, Vercel a des edges UE).</li>
+</ul>
+
+<h3>5.5 Accessibilité RGAA</h3>
+<ul>
+  <li>Sémantique HTML5 stricte (<code>header</code>, <code>nav</code>, <code>main</code>, <code>article</code>, <code>aside</code>, <code>footer</code>).</li>
+  <li>Contrastes WCAG AA validés (palette : <code>#2D1810</code> sur <code>#F4ECDD</code> = ratio 12.4:1).</li>
+  <li>Navigation 100% au clavier — focus visible (ring bordeaux sur tous les <code>:focus-visible</code>).</li>
+  <li><code>alt</code> sur toutes les images, vidéos absentes.</li>
+  <li>Labels associés à chaque <code>input</code>.</li>
+  <li>Messages d'erreur lisibles par les lecteurs d'écran (rôles aria implicites des messages d'erreur Sonner).</li>
+  <li>Pas d'auto-play, pas de mouvement non controllé.</li>
+</ul>
+
+<!-- ============================ 6. USE CASE ============================ -->
+<h1>6. Diagramme de cas d'utilisation</h1>
+<pre>
+                      ┌──────────────────────────────────────┐
+                      │           VITE & GOURMAND            │
+                      └──────────────────────────────────────┘
+
+  ┌──────────┐         consulter la vitrine
+  │ Visiteur ├─────────────────────────────────────────────────┐
+  └──────────┘         consulter le détail d'un menu           │
+       │              filtrer les menus (dynamique)            │
+       │              envoyer un message de contact            │
+       │              créer un compte                          │
+       │                                                       │
+       └──────► devient ►─────┐                                │
+                              │                                │
+  ┌──────────┐                ▼                                │
+  │   User   │         se connecter / réinit. MDP              │
+  └────┬─────┘         commander un menu                       │
+       │              modifier ou annuler avant validation     │
+       │              consulter l'historique de ses commandes  │
+       │              donner un avis (après "terminée")        │
+       │              modifier son profil                      │
+       │                                                       │
+  ┌──────────┐                                                 │
+  │ Employé  │         CRUD menus, plats, horaires             │
+  └────┬─────┘         évoluer les statuts de commande         │
+       │              annuler une commande (avec motif)        │
+       │              modérer les avis                         │
+       │                                                       │
+  ┌──────────┐                                                 │
+  │  Admin   │         tout ce qu'un employé peut faire        │
+  └──────────┘         créer un compte employé                 │
+                       désactiver/réactiver un employé         │
+                       consulter le dashboard NoSQL            │
+                       calculer le CA filtré ────────────────  │
+                                                               │
+                                                          ─────┘
+</pre>
+
+<!-- ============================ 7. SEQUENCE ============================ -->
+<h1>7. Diagrammes de séquence</h1>
+
+<h3>7.1 Création de commande (chemin nominal)</h3>
+<pre>
+Client (UI)          Backend          PostgreSQL          MongoDB           Resend
+   │                    │                  │                   │                 │
+   │── POST /commandes ─▶                  │                   │                 │
+   │                    │── select menu ──▶                    │                 │
+   │                    │◀─── menu rows ───                    │                 │
+   │                    │── insert commande ▶                  │                 │
+   │                    │◀─── new row ─────                    │                 │
+   │                    │── update stock ─▶                    │                 │
+   │                    │── insert order_event ─────────────── ▶                 │
+   │                    │◀─── ack ───────────────────────────── │                 │
+   │                    │── send confirmation email ──────────────────────────── ▶│
+   │                    │◀────────── ack ──────────────────────────────────────── │
+   │◀──── 201 + body ────                                                          │
+</pre>
+
+<h3>7.2 Inscription utilisateur</h3>
+<pre>
+Client          Backend         PostgreSQL          Resend
+   │              │                  │                  │
+   │── POST signup ▶ (Zod valid)     │                  │
+   │              │── check email ──▶                   │
+   │              │◀── 0 row ───────                    │
+   │              │── lookup role utilisateur ▶          │
+   │              │◀── role_id ─────                    │
+   │              │── bcrypt.hash(pwd, 12) (~250ms)     │
+   │              │── insert utilisateur ▶              │
+   │              │◀── new row ─────                    │
+   │              │── send welcome email ───────────── ▶│
+   │              │── sign JWT(sub, email, role)         │
+   │◀── 201 + token + user ─                            │
+</pre>
+
+<h3>7.3 Évolution statut par employé</h3>
+<pre>
+Employé UI       Backend          PostgreSQL          MongoDB          Resend
+   │                │                  │                   │                 │
+   │── POST /manage/:id/status ▶                           │                 │
+   │ (requireAuth + requireEmployee)                       │                 │
+   │                │── select commande ▶                  │                 │
+   │                │◀── row + user ──                     │                 │
+   │                │── update statut ─▶                   │                 │
+   │                │── insert order_event ──────────────  ▶                 │
+   │                │── send "status changed" mail ──────────────────────── ▶│
+   │                │── (si en_attente_retour_materiel) mail rappel ────── ▶ │
+   │                │── (si terminee) mail invitation avis ──────────────── ▶│
+   │◀── 200 OK ────                                                          │
+</pre>
+
+<!-- ============================ 8. ENV ============================ -->
+<h1>8. Configuration de l'environnement de travail</h1>
+
+<h3>8.1 Prérequis machine</h3>
+<ul>
+  <li>Node.js ≥ 20 (utilisé en dev : 24)</li>
+  <li>npm ≥ 10</li>
+  <li>git ≥ 2.30</li>
+  <li>Compte GitHub, Supabase, Vercel, Resend, MongoDB Atlas</li>
+</ul>
+
+<h3>8.2 Variables d'environnement backend</h3>
+<table>
+  <tr><th>Variable</th><th>Description</th><th>Exemple</th></tr>
+  <tr><td><code>NODE_ENV</code></td><td>Mode d'exécution</td><td>production / development</td></tr>
+  <tr><td><code>PORT</code></td><td>Port serveur dev local</td><td>3001</td></tr>
+  <tr><td><code>APP_URL</code></td><td>URL frontend (CORS + emails)</td><td>https://vite-et-gourmand-drab.vercel.app</td></tr>
+  <tr><td><code>JWT_SECRET</code></td><td>Secret de signature JWT (64 chars random)</td><td>...</td></tr>
+  <tr><td><code>JWT_EXPIRES_IN</code></td><td>Durée du token</td><td>7d</td></tr>
+  <tr><td><code>SUPABASE_URL</code></td><td>URL projet Supabase</td><td>https://uwzagqbyauuvivcvhxye.supabase.co</td></tr>
+  <tr><td><code>SUPABASE_ANON_KEY</code></td><td>Clé publique Supabase</td><td>sb_publishable_...</td></tr>
+  <tr><td><code>MONGODB_URI</code></td><td>URI Mongo (vide en dev → memory)</td><td>mongodb+srv://...</td></tr>
+  <tr><td><code>RESEND_API_KEY</code></td><td>Clé API Resend</td><td>re_...</td></tr>
+  <tr><td><code>RESEND_FROM</code></td><td>Adresse expéditeur</td><td>onboarding@resend.dev</td></tr>
+  <tr><td><code>BCRYPT_ROUNDS</code></td><td>Coût bcrypt (10-15)</td><td>12</td></tr>
+</table>
+
+<h3>8.3 Démarrage local</h3>
+<pre># 1. Cloner le repo
+git clone https://github.com/Jasteur91/vite-et-gourmand.git
+cd vite-et-gourmand
+
+# 2. Installer les dépendances
+cd backend && npm install
+cd ../frontend && npm install
+
+# 3. Variables d'env
+cd ../backend && cp .env.example .env
+# (renseigner les secrets : Supabase, Resend, etc.)
+
+# 4. Lancer backend (port 3001)
+npm run dev
+
+# 5. Lancer frontend (autre terminal, port 5173)
+cd ../frontend && npm run dev
+
+# 6. Ouvrir http://localhost:5173</pre>
+
+<!-- ============================ 9. DEPLOY ============================ -->
+<h1>9. Documentation de déploiement</h1>
+
+<h3>9.1 Démarche globale</h3>
+<p>L'application est déployée sur <strong>Vercel</strong> (frontend + backend serverless), avec <strong>Supabase</strong> pour PostgreSQL et <strong>MongoDB Atlas</strong> (M0 free) pour le NoSQL en production. Les emails transactionnels passent par <strong>Resend</strong>.</p>
+
+<h3>9.2 Étape 1 — Base de données PostgreSQL</h3>
+<ol>
+  <li>Créer un projet Supabase région eu-west-3 (Paris).</li>
+  <li>Exécuter le script <code>database/migrations/001_initial_schema.sql</code> (15 tables + indexes + triggers + seed).</li>
+  <li>Exécuter le script <code>database/seed/001_demo_data.sql</code> (3 comptes test + 12 plats + 4 menus).</li>
+  <li>Récupérer l'URL et la clé publishable depuis Settings → API.</li>
+</ol>
+
+<h3>9.3 Étape 2 — MongoDB Atlas</h3>
+<ol>
+  <li>Créer un cluster M0 free (région eu-west-3).</li>
+  <li>Créer un utilisateur BDD avec mot de passe fort.</li>
+  <li>Autoriser l'IP 0.0.0.0/0 (pour Vercel — alternative : IP allowlist Vercel).</li>
+  <li>Copier l'URI de connexion (mongodb+srv://...).</li>
+</ol>
+
+<h3>9.4 Étape 3 — Backend Vercel</h3>
+<pre>cd backend
+npx vercel --prod        # crée le projet et déploie
+# Ajouter ensuite chaque variable d'env via le dashboard ou CLI :
+npx vercel env add JWT_SECRET production
+# etc.
+npx vercel --prod        # redéploiement pour appliquer les env vars</pre>
+<p>Le fichier <code>vercel.json</code> route toutes les requêtes vers <code>api/index.ts</code> qui wrappe Express en handler serverless.</p>
+
+<h3>9.5 Étape 4 — Frontend Vercel</h3>
+<pre>cd frontend
+npx vercel env add VITE_API_URL production
+# → coller l'URL de l'API : https://vite-et-gourmand-api-three.vercel.app/api
+npx vercel --prod</pre>
+
+<h3>9.6 Étape 5 — Resend</h3>
+<ol>
+  <li>Créer un compte Resend.</li>
+  <li>Récupérer la clé API.</li>
+  <li>Pour les emails sortants depuis un domaine dédié, vérifier le DNS (TXT + DKIM). Pour le projet ECF, le domaine <code>onboarding@resend.dev</code> du free tier suffit.</li>
+</ol>
+
+<h3>9.7 Gitflow</h3>
+<p>Le projet respecte le gitflow attendu :</p>
+<ul>
+  <li><strong>main</strong> : branche stable, reflet de la prod.</li>
+  <li><strong>develop</strong> : branche d'intégration.</li>
+  <li><strong>feature/*</strong> : une branche par fonctionnalité, mergée dans <code>develop</code> après revue/test, puis dans <code>main</code> en release.</li>
+</ul>
+
+<h3>9.8 URLs publiques</h3>
+<table>
+  <tr><th>Resource</th><th>URL</th></tr>
+  <tr><td>Frontend</td><td>https://vite-et-gourmand-drab.vercel.app</td></tr>
+  <tr><td>Backend API</td><td>https://vite-et-gourmand-api-three.vercel.app/api</td></tr>
+  <tr><td>Health check</td><td>https://vite-et-gourmand-api-three.vercel.app/api/health</td></tr>
+  <tr><td>Repo GitHub</td><td>https://github.com/Jasteur91/vite-et-gourmand</td></tr>
+</table>
+
+<!-- ============================ 10. TESTS ============================ -->
+<h1>10. Tests et qualité</h1>
+
+<h3>10.1 TypeScript strict</h3>
+<p>Les deux applications sont sous TypeScript strict (incluant <code>noUncheckedIndexedAccess</code> côté backend). Le typecheck est exécuté avant chaque build.</p>
+
+<h3>10.2 Tests manuels effectués</h3>
+<table>
+  <tr><th>Scénario</th><th>Résultat attendu</th><th>Statut</th></tr>
+  <tr><td>Inscription d'un nouveau compte (mot de passe valide)</td><td>HTTP 201 + JWT + email de bienvenue</td><td>✓</td></tr>
+  <tr><td>Inscription avec mot de passe trop faible</td><td>HTTP 400 + détail validation</td><td>✓</td></tr>
+  <tr><td>Login admin/employé/utilisateur</td><td>JWT + redirection vers espace correspondant</td><td>✓</td></tr>
+  <tr><td>Login bad password</td><td>HTTP 401 sans révéler de détail</td><td>✓</td></tr>
+  <tr><td>Vue globale menus avec filtre (régime, prix, thème)</td><td>Re-render dynamique sans reload</td><td>✓</td></tr>
+  <tr><td>Commande complète (utilisateur → admin valide → terminée)</td><td>Statuts évoluent + mails envoyés + audit Mongo</td><td>✓</td></tr>
+  <tr><td>Dashboard admin avec graphique commandes</td><td>Donnée issue de l'aggregation Mongo</td><td>✓</td></tr>
+  <tr><td>Tentative modification d'un compte employé par un utilisateur</td><td>HTTP 403</td><td>✓</td></tr>
+  <tr><td>Brute-force login (11 tentatives en 15 min)</td><td>HTTP 429 sur la 11ème</td><td>✓</td></tr>
+</table>
+
+<h3>10.3 Lighthouse (frontend)</h3>
+<p>L'application est mesurée en build production (Vite) — score Lighthouse attendu : Performance &gt; 90, Accessibilité 100, Best Practices 100, SEO 100.</p>
+
+<h3>10.4 Améliorations possibles</h3>
+<ul>
+  <li>Tests d'intégration Vitest sur les routes critiques (signup, login, commande).</li>
+  <li>Tests E2E Playwright pour les parcours utilisateur.</li>
+  <li>CI GitHub Actions (lint + typecheck + build + deploy).</li>
+  <li>Monitoring Sentry (frontend + backend) pour le suivi des erreurs en production.</li>
+  <li>Migration vers HTTP-only cookie pour le JWT (en complément du localStorage).</li>
+</ul>
+
+</body>
+</html>

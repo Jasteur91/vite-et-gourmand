@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Vite & Gourmand — Gestion de projet</title>
+<style>
+  :root { --bordeaux:#6B1F2A; --creme:#F4ECDD; --cafe:#2D1810; --or:#C8A35A; }
+  @page { size: A4; margin: 22mm 18mm; }
+  body { font-family:'Inter',system-ui,sans-serif; color:var(--cafe); line-height:1.65; font-size:11pt; margin:0; }
+  .cover { page-break-after: always; height: 250mm; background: var(--creme); padding: 60mm 25mm; margin: -22mm -18mm; }
+  .cover .eyebrow { color:var(--bordeaux); font-size:9pt; letter-spacing:.2em; text-transform:uppercase; }
+  .cover h1 { font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:56pt; line-height:1.0; color:var(--bordeaux); margin:16pt 0; }
+  .cover .subtitle { font-family:'Fraunces',Georgia,serif; font-style:italic; color:var(--cafe); font-size:22pt; }
+  .cover .meta { margin-top:60mm; font-size:10pt; line-height:2; }
+  .rule-gold { height:1px; width:60px; background:var(--or); margin:20pt 0; }
+  h1 { font-family:'Fraunces',Georgia,serif; font-size:28pt; color:var(--bordeaux); margin:40pt 0 8pt; font-weight:400; }
+  h2 { font-family:'Fraunces',Georgia,serif; font-size:20pt; color:var(--cafe); margin:32pt 0 8pt; font-weight:400; border-top:1px solid #00000010; padding-top:16pt; }
+  h3 { font-family:'Fraunces',Georgia,serif; font-size:14pt; color:var(--bordeaux); margin:20pt 0 4pt; font-weight:500; }
+  p { margin: 0 0 10pt; }
+  ul { margin: 0 0 10pt; padding-left: 18pt; }
+  table { width:100%; border-collapse:collapse; margin:10pt 0; font-size:10pt; }
+  th, td { padding:6pt 8pt; border-bottom:1px solid #00000010; text-align:left; vertical-align:top; }
+  th { background:var(--creme); color:var(--bordeaux); font-weight:600; font-size:9pt; letter-spacing:.05em; }
+  code { background:#00000008; padding:1pt 4pt; border-radius:3pt; font-family:'JetBrains Mono',monospace; font-size:9pt; }
+  pre { background: var(--cafe); color: var(--creme); padding: 12pt; border-radius: 6pt; font-size: 8.5pt; line-height: 1.5; }
+  .callout { background:#FBF3F4; border-left:3px solid var(--bordeaux); padding:12pt 14pt; margin:14pt 0; border-radius:0 6pt 6pt 0; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <p class="eyebrow">Documentation gestion de projet</p>
+  <h1>Vite &amp;<br><em style="font-style:italic;color:var(--cafe)">Gourmand</em>.</h1>
+  <div class="rule-gold"></div>
+  <p class="subtitle">Méthodologie, outils, traçabilité.</p>
+  <div class="meta">
+    <p><strong>Étudiant</strong> · Jassim Elghaouti</p>
+    <p><strong>Projet</strong> · ECF Studi — TP Développeur Web et Web Mobile</p>
+    <p><strong>Durée indicative</strong> · 70 heures</p>
+    <p><strong>Date</strong> · Mai 2026</p>
+  </div>
+</div>
+
+<h1>1. Méthodologie</h1>
+<p>Sur un projet à un seul développeur de cette taille, j'ai retenu une approche <strong>Kanban simplifié</strong> avec une découpe en blocs fonctionnels. C'est la méthode la plus pragmatique :</p>
+<ul>
+  <li>Pas de cérémonies inutiles (un sprint = un développeur n'a pas de sens).</li>
+  <li>Visibilité immédiate de ce qui est en cours / fait.</li>
+  <li>Possibilité de réordonner les priorités sans rituel.</li>
+</ul>
+
+<p>Le tableau Kanban est tenu dans <strong>Notion</strong>. Les colonnes : <em>Backlog → À faire → En cours → Revue → Fait</em>.</p>
+
+<h1>2. Découpage du projet</h1>
+
+<table>
+  <tr><th>Bloc</th><th>Heures estimées</th><th>Livrables</th></tr>
+  <tr><td>1. Cadrage &amp; analyse</td><td>4h</td><td>User stories, périmètre, stack justifiée</td></tr>
+  <tr><td>2. Maquettage</td><td>8h</td><td>Charte graphique, 6 maquettes (3 desktop + 3 mobile)</td></tr>
+  <tr><td>3. Modélisation BDD</td><td>6h</td><td>MCD, MLD, MPD, scripts SQL natifs + seed</td></tr>
+  <tr><td>4. Setup environnement</td><td>3h</td><td>Repo Git initialisé, gitflow, README, projet Notion</td></tr>
+  <tr><td>5. Front statique</td><td>10h</td><td>Toutes les pages HTML/CSS responsive + RGAA</td></tr>
+  <tr><td>6. Back + Auth</td><td>12h</td><td>Inscription, login, MDP oublié, rôles, hashage, JWT</td></tr>
+  <tr><td>7. CRUD menus + filtres dynamiques</td><td>8h</td><td>Vue globale + détail + filtres AJAX sans reload</td></tr>
+  <tr><td>8. Workflow commande</td><td>8h</td><td>Commande complète + mails + statuts</td></tr>
+  <tr><td>9. Espaces employé + admin</td><td>6h</td><td>Modération avis, gestion commandes, gestion employés</td></tr>
+  <tr><td>10. NoSQL + dashboard</td><td>3h</td><td>MongoDB intégré, graphique commandes/menu, CA</td></tr>
+  <tr><td>11. Déploiement</td><td>2h</td><td>App en ligne (Vercel front + back)</td></tr>
+  <tr><td>12. Documentation + copie ECF</td><td>6h</td><td>Manuel PDF, doc projet, doc technique, copie remplie</td></tr>
+  <tr><td>13. Relecture + dépôt</td><td>2h</td><td>Vérification livrables + soumission Studi</td></tr>
+  <tr><th>Total</th><th>78h</th><th>—</th></tr>
+</table>
+
+<h1>3. Outils utilisés</h1>
+
+<table>
+  <tr><th>Catégorie</th><th>Outil</th><th>Usage</th></tr>
+  <tr><td>Versionning</td><td>Git + GitHub</td><td>Repo public, gitflow main/develop/feature/*</td></tr>
+  <tr><td>Hébergement code</td><td>GitHub</td><td>Repo public obligatoire (cf. énoncé)</td></tr>
+  <tr><td>Gestion projet</td><td>Notion</td><td>Kanban + spécifications + journal</td></tr>
+  <tr><td>Maquettage</td><td>Captures Puppeteer + Tailwind config</td><td>3 desktop + 3 mobile (rendus fidèles)</td></tr>
+  <tr><td>IDE</td><td>Cursor + Claude Code</td><td>Pair-programming IA assisté pour rapidité d'exécution</td></tr>
+  <tr><td>Communication client</td><td>Mail (rôle simulé chef de projet)</td><td>—</td></tr>
+  <tr><td>BDD relationnelle</td><td>Supabase (PostgreSQL 17)</td><td>Région Paris</td></tr>
+  <tr><td>BDD NoSQL</td><td>MongoDB Atlas (M0 free)</td><td>Audit trail + dashboard</td></tr>
+  <tr><td>Hébergement</td><td>Vercel (front + back serverless)</td><td>CDN global, deploy git push</td></tr>
+  <tr><td>Mailer</td><td>Resend</td><td>Free tier 100 mails/jour</td></tr>
+</table>
+
+<h1>4. Gitflow appliqué</h1>
+
+<pre>main      ───●────────●────────●─────────── (production)
+              \        \        \
+develop    ────●────●───●────●───●──────────── (intégration)
+                \    \    \    \    \
+features        ●    ●    ●    ●    ●     (1 branche = 1 feature)</pre>
+
+<p>Règles appliquées :</p>
+<ul>
+  <li>Une <strong>branche par fonctionnalité</strong> nommée <code>feature/&lt;nom&gt;</code>, issue de <code>develop</code>.</li>
+  <li>Après tests, <strong>merge vers develop</strong> avec message conventionnel (<code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>chore:</code>, <code>refactor:</code>).</li>
+  <li>Quand <code>develop</code> est stable, <strong>merge vers main</strong> (release).</li>
+  <li>Pas de commit direct sur <code>main</code>.</li>
+</ul>
+
+<p>Branches créées dans ce projet :</p>
+<ul>
+  <li><code>main</code> (release stable)</li>
+  <li><code>develop</code> (intégration)</li>
+  <li><code>feature/database-schema</code> (schéma BDD + scaffolds + features)</li>
+</ul>
+
+<h1>5. Communication &amp; revue</h1>
+
+<p>Dans un projet réel d'équipe :</p>
+<ul>
+  <li><strong>Daily standup</strong> de 10 minutes (qui fait quoi, blocages).</li>
+  <li><strong>Pull Requests</strong> avec au moins une review avant merge dans <code>develop</code>.</li>
+  <li><strong>Tests d'intégration</strong> automatiques en CI (GitHub Actions).</li>
+  <li><strong>Démos hebdomadaires</strong> avec le chef de projet pour cadrer le delta.</li>
+</ul>
+
+<p>Ici, en projet solo, l'équivalent est :</p>
+<ul>
+  <li>Tâche commencée → marquée <em>En cours</em> dans Notion.</li>
+  <li>Tâche finie → branche mergée + commit conventionnel + colonne Done.</li>
+  <li>Tests manuels (parcours visiteur, user, employé, admin) après chaque feature majeure.</li>
+</ul>
+
+<h1>6. Risques identifiés &amp; mitigation</h1>
+
+<table>
+  <tr><th>Risque</th><th>Probabilité</th><th>Impact</th><th>Mitigation</th></tr>
+  <tr><td>App pas déployée le jour du jury</td><td>Moyenne</td><td>Pénalités contractuelles</td><td>Déploiement en parallèle dev, tests fréquents en prod</td></tr>
+  <tr><td>Fuite de secrets dans le repo</td><td>Faible</td><td>Compromission compte</td><td><code>.env</code> en .gitignore, env vars Vercel chiffrées</td></tr>
+  <tr><td>Cold start Vercel function trop lent</td><td>Moyenne</td><td>UX dégradée</td><td>Lazy Mongo init, mongodb-memory-server en devDeps (bundle prod léger)</td></tr>
+  <tr><td>Email non délivré (anti-spam)</td><td>Faible</td><td>UX dégradée</td><td>Domaine Resend par défaut, monitoring console</td></tr>
+  <tr><td>Pertes des 55 emails Sourcify (projet voisin)</td><td>Avérée à mitiger</td><td>Donnée client perdue</td><td>Backup JSON avant pause du projet Supabase Sourcify</td></tr>
+</table>
+
+<h1>7. Journal de bord (résumé)</h1>
+
+<pre>2026-05-16  setup repo + Supabase + schéma BDD + seed
+2026-05-16  scaffold backend Express + frontend Vite (skeletons)
+2026-05-16  backend complet : auth, menus, commandes, dashboard, mailer
+2026-05-16  frontend complet : 14 pages, 4 rôles, design éditorial gourmand
+2026-05-16  refactor backend pour serverless Vercel (mongo lazy)
+2026-05-16  déploiement front + back sur Vercel — toutes les routes répondent
+2026-05-17  enrichissement Home (parallax hero, atelier collage, KPIs)
+2026-05-17  documentation : technique, manuel, charte, gestion projet
+2026-05-17  rédaction copie ECF
+2026-05-17  soumission Studi
+2026-05-20  date limite de rendu (deadline)</pre>
+
+</body>
+</html>

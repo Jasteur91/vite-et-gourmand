@@ -4,6 +4,7 @@ import { Menu as MenuIcon, X, User as UserIcon } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { $ } from '../lib/api';
 import { cn } from '../lib/cn';
+import { ScrollProgress } from './ScrollProgress';
 
 type Horaire = { jour: string; heure_ouverture: string | null; heure_fermeture: string | null; est_ferme: boolean };
 
@@ -19,6 +20,7 @@ export function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollProgress />
       {/* ========= NAVBAR ========= */}
       <header className="sticky top-0 z-40 bg-creme-200/85 backdrop-blur border-b border-cafe-900/8">
         <div className="container-edit flex items-center justify-between h-18 py-3">

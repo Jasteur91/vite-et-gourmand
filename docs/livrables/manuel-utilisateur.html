@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Vite & Gourmand — Manuel d'utilisation</title>
+<style>
+  :root { --bordeaux:#6B1F2A; --creme:#F4ECDD; --cafe:#2D1810; --or:#C8A35A; }
+  @page { size: A4; margin: 22mm 18mm; }
+  body { font-family:'Inter',system-ui,sans-serif; color:var(--cafe); line-height:1.65; font-size:11pt; margin:0; }
+  .cover { page-break-after: always; height: 250mm; background: var(--creme); padding: 60mm 25mm; margin: -22mm -18mm; }
+  .cover .eyebrow { color:var(--bordeaux); font-size:9pt; letter-spacing:.2em; text-transform:uppercase; }
+  .cover h1 { font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:56pt; line-height:1; color:var(--bordeaux); margin:16pt 0; }
+  .cover .subtitle { font-family:'Fraunces',Georgia,serif; font-style:italic; color:var(--cafe); font-size:22pt; }
+  .cover .meta { margin-top:60mm; font-size:10pt; line-height:2; }
+  .rule-gold { height:1px; width:60px; background:var(--or); margin:20pt 0; }
+  h1 { font-family:'Fraunces',Georgia,serif; font-size:28pt; color:var(--bordeaux); margin:40pt 0 8pt; font-weight:400; }
+  h2 { font-family:'Fraunces',Georgia,serif; font-size:20pt; color:var(--cafe); margin:32pt 0 8pt; font-weight:400; border-top:1px solid #00000010; padding-top:16pt; }
+  h3 { font-family:'Fraunces',Georgia,serif; font-size:14pt; color:var(--bordeaux); margin:20pt 0 4pt; font-weight:500; }
+  p { margin: 0 0 10pt; }
+  ul, ol { padding-left:18pt; margin-bottom:10pt; }
+  table { width:100%; border-collapse:collapse; margin:10pt 0; font-size:10pt; }
+  th, td { padding:6pt 8pt; border-bottom:1px solid #00000010; text-align:left; vertical-align:top; }
+  th { background:var(--creme); color:var(--bordeaux); font-weight:600; font-size:9pt; letter-spacing:.05em; }
+  code { background:#00000008; padding:1pt 4pt; border-radius:3pt; font-family:'JetBrains Mono',monospace; font-size:9pt; }
+  .callout { background:#FBF3F4; border-left:3px solid var(--bordeaux); padding:12pt 14pt; margin:14pt 0; border-radius:0 6pt 6pt 0; }
+  .callout strong { color:var(--bordeaux); }
+  .step { display:flex; gap:12pt; margin:14pt 0; }
+  .step .num { flex-shrink:0; width:28pt; height:28pt; border-radius:50%; background:var(--bordeaux); color:var(--creme); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:14pt; }
+  figure { margin:14pt 0; }
+  figure img { width:100%; border-radius:6pt; box-shadow:0 8px 24px rgba(0,0,0,.08); }
+  figure figcaption { font-size:8.5pt; color:#555; text-align:center; margin-top:6pt; font-style:italic; }
+  .creds { background: var(--cafe); color: var(--creme); padding: 16pt; border-radius: 8pt; font-family:'JetBrains Mono',monospace; font-size:9pt; line-height:1.7; }
+  .creds strong { color: var(--or); }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <p class="eyebrow">Manuel d'utilisation</p>
+  <h1>Vite &amp;<br><em style="font-style:italic;color:var(--cafe)">Gourmand</em>.</h1>
+  <div class="rule-gold"></div>
+  <p class="subtitle">Guide d'utilisation pour le jury &amp; les utilisateurs.</p>
+  <div class="meta">
+    <p><strong>Étudiant</strong> · Jassim Elghaouti</p>
+    <p><strong>Projet</strong> · ECF Studi — TP Développeur Web et Web Mobile</p>
+    <p><strong>App</strong> · vite-et-gourmand-drab.vercel.app</p>
+    <p><strong>Date</strong> · Mai 2026</p>
+  </div>
+</div>
+
+<h1>1. Démarrage</h1>
+
+<p>L'application est accessible 24/7 sur :</p>
+<div class="callout">
+  <strong>https://vite-et-gourmand-drab.vercel.app</strong>
+</div>
+<p>Le code source est disponible publiquement sur GitHub :</p>
+<div class="callout">
+  <strong>https://github.com/Jasteur91/vite-et-gourmand</strong>
+</div>
+
+<h2>1.1 Comptes de test fournis</h2>
+<p>Trois comptes pré-créés permettent au jury de tester immédiatement chacun des rôles :</p>
+
+<div class="creds">
+<strong>ADMINISTRATEUR</strong> (José)<br>
+email     : jose@vite-et-gourmand.fr<br>
+password  : AdminViteG2026!<br>
+<br>
+<strong>EMPLOYÉ</strong> (Julie)<br>
+email     : julie@vite-et-gourmand.fr<br>
+password  : EmployeViteG2026!<br>
+<br>
+<strong>UTILISATEUR</strong> (client Jean)<br>
+email     : jean.dupont@example.com<br>
+password  : DemoUser2026!
+</div>
+
+<h1>2. Parcours visiteur</h1>
+
+<p>Aucune authentification requise pour ces parcours.</p>
+
+<div class="step">
+  <div class="num">1</div>
+  <div>
+    <h3>Découvrir la page d'accueil</h3>
+    <p>Hero éditorial, présentation de l'entreprise, sélection du moment, manifeste, galerie atelier, témoignages clients (uniquement les avis modérés validés).</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">2</div>
+  <div>
+    <h3>Parcourir les menus</h3>
+    <p>Cliquer sur <code>Les menus</code> dans la navbar. Vous voyez la liste des menus disponibles. Utilisez les filtres à gauche pour affiner :</p>
+    <ul>
+      <li>fourchette de prix (min / max) ;</li>
+      <li>nombre de personnes minimum ;</li>
+      <li>thème (classique, Noël, Pâques, événement) ;</li>
+      <li>régime (classique, végétarien, végan, sans-gluten, halal, casher).</li>
+    </ul>
+    <p>Les résultats se réactualisent <strong>sans rechargement de page</strong> (filtres dynamiques via AJAX).</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">3</div>
+  <div>
+    <h3>Consulter le détail d'un menu</h3>
+    <p>Cliquer sur une carte. Vous accédez à la fiche complète : photo, composition (entrées, plats, desserts), <strong>allergènes par plat</strong>, conditions du menu (mises en évidence), prix, stock, régime.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">4</div>
+  <div>
+    <h3>Envoyer un message via le contact</h3>
+    <p>Renseigner email, sujet, message. L'équipe reçoit le message par mail et il est aussi loggé en base NoSQL.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">5</div>
+  <div>
+    <h3>Créer un compte</h3>
+    <p>Cliquer sur <code>Créer un compte</code>. Renseigner nom, prénom, email, téléphone, adresse, ville, mot de passe.</p>
+    <p>Le mot de passe doit respecter : <strong>10 caractères min, 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial</strong>. Un indicateur visuel temps réel affiche la conformité.</p>
+    <p>À l'inscription, un mail de bienvenue est envoyé automatiquement.</p>
+  </div>
+</div>
+
+<h1>3. Parcours utilisateur</h1>
+
+<div class="step">
+  <div class="num">1</div>
+  <div>
+    <h3>Se connecter</h3>
+    <p>Email + mot de passe. En cas d'oubli, lien <code>Mot de passe oublié</code> sur la page de login : un mail avec un lien de réinitialisation (valable 1h) est envoyé.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">2</div>
+  <div>
+    <h3>Commander un menu</h3>
+    <p>Depuis un menu, cliquer sur <code>Commander ce menu</code>. Le parcours est en 3 étapes :</p>
+    <ol>
+      <li><strong>Vos informations</strong> : nom, prénom, email, GSM (auto-remplis depuis le compte).</li>
+      <li><strong>Détails de la prestation</strong> : adresse, ville (Bordeaux → livraison gratuite, sinon 5€ + 0,59€/km), date, heure.</li>
+      <li><strong>Nombre de convives</strong> : minimum imposé par le menu. Au-delà de min+5 personnes : remise -10% automatique.</li>
+    </ol>
+    <p>Le récapitulatif prix se met à jour en temps réel pendant la saisie. Validation → mail de confirmation + numéro de commande.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">3</div>
+  <div>
+    <h3>Consulter ses commandes</h3>
+    <p>Espace utilisateur → onglet <code>Mes commandes</code>. Vous voyez le statut, le montant, la date.</p>
+    <p>En cliquant sur le détail, vous accédez à l'historique complet des statuts (issu de la base NoSQL).</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">4</div>
+  <div>
+    <h3>Modifier ou annuler une commande</h3>
+    <p>Tant que la commande est en statut <code>en attente</code>, vous pouvez la modifier ou l'annuler. Une fois passée en <code>acceptée</code> par l'équipe, il faut nous contacter directement.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="num">5</div>
+  <div>
+    <h3>Donner un avis</h3>
+    <p>Quand une commande passe en <code>terminée</code>, vous recevez un mail vous invitant à laisser un avis (note 1-5 + commentaire). Cet avis est ensuite modéré par l'équipe avant publication sur la page d'accueil.</p>
+  </div>
+</div>
+
+<h1>4. Espace employé</h1>
+
+<p>Accessible aux comptes employé et administrateur via le menu navbar <code>Espace pro</code>.</p>
+
+<h3>4.1 Gestion des commandes</h3>
+<p>Filtres disponibles par statut et par client (nom, email).</p>
+<p>Pour chaque commande, des boutons d'action permettent de faire évoluer le statut selon le workflow :</p>
+<table>
+  <tr><th>Statut actuel</th><th>Transitions possibles</th></tr>
+  <tr><td>En attente</td><td>→ Acceptée</td></tr>
+  <tr><td>Acceptée</td><td>→ En préparation</td></tr>
+  <tr><td>En préparation</td><td>→ En livraison</td></tr>
+  <tr><td>En livraison</td><td>→ Livrée</td></tr>
+  <tr><td>Livrée</td><td>→ Matériel à rendre (si prêt) ou Terminée</td></tr>
+  <tr><td>Matériel à rendre</td><td>→ Terminée</td></tr>
+</table>
+<p>Chaque changement déclenche un email automatique au client.</p>
+
+<h3>4.2 Annulation par l'employé</h3>
+<p>L'employé peut annuler une commande à tout moment, à condition de saisir un motif et un mode de contact (GSM ou mail) — obligatoire avant validation.</p>
+
+<h3>4.3 Modération des avis</h3>
+<p>Onglet <code>Modération avis</code> : liste des avis en attente. Boutons <code>Publier</code> ou <code>Refuser</code>. Les avis publiés apparaissent sur la page d'accueil.</p>
+
+<h1>5. Espace administrateur</h1>
+
+<p>Accessible uniquement aux comptes administrateur via la navbar <code>Administration</code>.</p>
+
+<h3>5.1 Tableau de bord (NoSQL)</h3>
+<p>L'admin voit trois KPI (CA total, nombre de commandes, menus actifs) et un graphique en barres qui montre le <strong>nombre de commandes par menu</strong>.</p>
+<p>Filtres : période (depuis / jusqu'à). Les données sont issues de la <strong>base de données non relationnelle (MongoDB)</strong> via un pipeline d'agrégation.</p>
+<p>Plus bas, un tableau détaille le CA par menu (utile pour l'analyse business).</p>
+
+<h3>5.2 Gestion des employés</h3>
+<p>Onglet <code>Employés</code> : liste de tous les comptes employés et administrateurs.</p>
+<p>Bouton <code>Créer un employé</code> : formulaire nom, prénom, email, mot de passe initial.</p>
+<div class="callout">
+  <strong>Conformité énoncé.</strong> Le mot de passe n'est <strong>jamais envoyé par mail</strong>. L'employé reçoit uniquement un mail l'informant qu'un compte a été créé et lui demandant de contacter l'administrateur pour récupérer ses identifiants.
+</div>
+<p>Bouton <code>Désactiver</code> / <code>Réactiver</code> : permet de bloquer un compte (ex : départ d'un employé).</p>
+<div class="callout">
+  <strong>Conformité énoncé.</strong> Il est <strong>impossible</strong> de créer un compte administrateur depuis l'application — c'est volontaire (sécurité). Le compte de José a été créé manuellement via le script SQL <code>database/seed/001_demo_data.sql</code>.
+</div>
+
+<h3>5.3 Accès aux opérations employé</h3>
+<p>Onglet <code>Opérations</code> : l'admin a aussi accès au gestion des commandes et à la modération des avis (intégralement les pouvoirs d'un employé).</p>
+
+<h1>6. Spécificités techniques utiles au jury</h1>
+
+<h3>6.1 Calcul du prix de livraison</h3>
+<ul>
+  <li><strong>Bordeaux</strong> : livraison gratuite (0 €).</li>
+  <li><strong>Hors Bordeaux</strong> : 5 € de base + 0,59 € / km. Pour simplifier, l'application facture forfaitairement 10 km hors Bordeaux (limite documentée : intégration future d'une API maps pour calcul de distance réelle).</li>
+</ul>
+
+<h3>6.2 Calcul de la remise</h3>
+<p>Si <code>nombre_personne ≥ nombre_personne_minimum + 5</code>, une remise de <strong>10%</strong> est appliquée sur le sous-total menu (hors livraison). Visible dans le récapitulatif avant validation.</p>
+
+<h3>6.3 Stock</h3>
+<p>Chaque menu a un stock initial (quantité de commandes restantes). Une commande validée décrémente le stock. Quand le stock atteint zéro, le bouton <code>Commander</code> est désactivé.</p>
+
+<h3>6.4 Mail "retour matériel"</h3>
+<p>Quand l'employé passe une commande en statut <code>en_attente_retour_materiel</code>, un mail est envoyé au client lui indiquant qu'<strong>il dispose de 10 jours ouvrés pour restituer le matériel</strong>. Au-delà, des frais de 600 € seront facturés (mention CGV).</p>
+
+</body>
+</html>

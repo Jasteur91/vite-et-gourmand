@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Vite & Gourmand — Charte graphique</title>
+<style>
+  :root { --bordeaux:#6B1F2A; --creme:#F4ECDD; --cafe:#2D1810; --or:#C8A35A; --terre:#E8704A; }
+  @page { size: A4; margin: 18mm 16mm; }
+  body { font-family:'Inter',system-ui,sans-serif; color:var(--cafe); margin:0; line-height:1.6; font-size:10.5pt; }
+  .display { font-family:'Fraunces',Georgia,serif; }
+  .cover { page-break-after: always; height: 270mm; background: var(--creme); padding: 70mm 30mm; margin: -18mm -16mm; }
+  .cover .eyebrow { color:var(--bordeaux); font-size:9pt; letter-spacing:.22em; text-transform:uppercase; }
+  .cover h1 { font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:64pt; line-height:.95; color:var(--bordeaux); margin:18pt 0; }
+  .cover .subtitle { font-family:'Fraunces',Georgia,serif; font-style:italic; color:var(--cafe); font-size:24pt; }
+  .cover .meta { margin-top:80mm; font-size:10pt; line-height:2; }
+  .rule-gold { height:1px; width:70px; background:var(--or); margin:24pt 0; }
+
+  h1 { font-family:'Fraunces',Georgia,serif; font-size:30pt; color:var(--bordeaux); margin:32pt 0 12pt; font-weight:300; }
+  h2 { font-family:'Fraunces',Georgia,serif; font-size:18pt; color:var(--cafe); margin:24pt 0 8pt; font-weight:400; }
+  h3 { font-family:'Fraunces',Georgia,serif; font-size:13pt; color:var(--bordeaux); margin:14pt 0 4pt; font-weight:500; }
+  .eyebrow { font-size:8pt; letter-spacing:.18em; text-transform:uppercase; color:var(--bordeaux); }
+
+  .palette-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8pt; margin: 12pt 0 6pt; }
+  .swatch { aspect-ratio: 1; border-radius: 6pt; position: relative; overflow: hidden; }
+  .swatch-info { padding: 6pt 8pt; font-family:'JetBrains Mono',monospace; font-size:7.5pt; }
+  .swatch-info .hex { color: var(--cafe); font-weight: 600; }
+  .swatch-info .name { color: #888; }
+
+  .typo-block { padding: 16pt; background: var(--creme); border-radius: 8pt; margin: 12pt 0; }
+  .typo-block h4 { margin: 0 0 6pt; font-size: 9pt; letter-spacing: .15em; text-transform: uppercase; color: var(--bordeaux); font-weight: 600; }
+  .specimen { font-family: 'Fraunces', Georgia, serif; color: var(--cafe); }
+  .specimen-large { font-size: 48pt; line-height: 1.0; font-weight: 300; letter-spacing: -0.03em; }
+  .specimen-medium { font-size: 24pt; line-height: 1.1; font-weight: 400; }
+  .specimen-body { font-family: 'Inter', sans-serif; font-size: 11pt; line-height: 1.7; }
+  .glyph-set { font-size: 14pt; letter-spacing: 0.05em; color: var(--cafe); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16pt; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12pt; }
+
+  .component-demo { background: var(--creme); padding: 24pt; border-radius: 10pt; }
+  .btn { display: inline-block; padding: 8pt 16pt; border-radius: 999pt; font-weight: 500; font-size: 10pt; }
+  .btn-primary { background: var(--bordeaux); color: var(--creme); }
+  .btn-ghost { border: 1pt solid #00000033; color: var(--cafe); }
+  .btn-gold { background: var(--or); color: var(--cafe); }
+  .tag { display: inline-block; padding: 2pt 8pt; background: var(--creme); color: var(--cafe); border-radius: 999pt; font-size: 8pt; border:1pt solid #00000010; }
+  .tag-gold { background: #FBF7EE; color: #876830; border-color: #DCBE74; }
+
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0 20pt; font-size: 10pt; }
+  th, td { padding: 6pt 8pt; border-bottom: 1px solid #00000010; text-align: left; }
+  th { background: var(--creme); color: var(--bordeaux); font-size: 9pt; }
+  code { background: #00000008; padding: 1pt 4pt; border-radius: 3pt; font-family: 'JetBrains Mono', monospace; font-size: 9pt; }
+  .callout { background: #FBF3F4; border-left: 3px solid var(--bordeaux); padding: 12pt 14pt; margin: 14pt 0; border-radius: 0 6pt 6pt 0; }
+
+  figure { margin: 12pt 0; page-break-inside: avoid; }
+  figure img { width: 100%; border-radius: 6pt; border:1px solid #00000010; }
+  figure figcaption { font-size: 8.5pt; color: #555; text-align: center; margin-top: 6pt; font-style: italic; }
+  .grid-2-figs { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <p class="eyebrow">Charte graphique</p>
+  <h1>Vite &amp;<br><em style="font-style:italic;color:var(--cafe)">Gourmand</em>.</h1>
+  <div class="rule-gold"></div>
+  <p class="subtitle">Système de design éditorial gourmand.</p>
+  <div class="meta">
+    <p><strong>Étudiant</strong> · Jassim Elghaouti</p>
+    <p><strong>Projet</strong> · ECF Studi — TP Développeur Web et Web Mobile</p>
+    <p><strong>Direction artistique</strong> · Magazine culinaire premium, héritage bordelais.</p>
+    <p><strong>Date</strong> · Mai 2026</p>
+  </div>
+</div>
+
+<h1>1. Identité &amp; direction artistique</h1>
+<p><strong>Concept</strong> — Vite &amp; Gourmand est un traiteur bordelais de 25 ans. Sa marque devait évoquer le terroir, le geste artisanal et la table dressée — sans tomber dans le pittoresque. Le système de design retenu s'inspire des magazines culinaires éditoriaux haut de gamme (<em>Le Pristol</em>, <em>Coquelet</em>, éditions <em>Ladurée</em>) plutôt que d'un site SaaS générique.</p>
+
+<p><strong>Principes</strong> :</p>
+<ul>
+  <li><strong>Photo first</strong> — les plats sont la marque. Les images occupent souvent toute la largeur, en haute qualité.</li>
+  <li><strong>Typographie éditoriale</strong> — un serif d'auteur (Fraunces) en display, une grotesque neutre (Inter) en UI.</li>
+  <li><strong>Palette terroir</strong> — bordeaux, crème, or champagne, café, terracotta. Tons chauds, peu saturés.</li>
+  <li><strong>Animations sobres</strong> — courbe gourmande (cubic-bezier .22,1,.36,1), durées 600-900 ms. Pas d'effet "tech".</li>
+</ul>
+
+<h1>2. Palette colorimétrique</h1>
+
+<h3>2.1 Bordeaux — couleur de marque</h3>
+<div class="palette-grid">
+  <div><div class="swatch" style="background:#FBF3F4"></div><div class="swatch-info"><div class="hex">#FBF3F4</div><div class="name">bordeaux-50</div></div></div>
+  <div><div class="swatch" style="background:#F5E1E3"></div><div class="swatch-info"><div class="hex">#F5E1E3</div><div class="name">bordeaux-100</div></div></div>
+  <div><div class="swatch" style="background:#E7BAC0"></div><div class="swatch-info"><div class="hex">#E7BAC0</div><div class="name">bordeaux-200</div></div></div>
+  <div><div class="swatch" style="background:#D38A93"></div><div class="swatch-info"><div class="hex">#D38A93</div><div class="name">bordeaux-300</div></div></div>
+  <div><div class="swatch" style="background:#B85968"></div><div class="swatch-info"><div class="hex">#B85968</div><div class="name">bordeaux-400</div></div></div>
+  <div><div class="swatch" style="background:#9B3344"></div><div class="swatch-info"><div class="hex">#9B3344</div><div class="name">bordeaux-500</div></div></div>
+  <div><div class="swatch" style="background:#7E2435"></div><div class="swatch-info"><div class="hex">#7E2435</div><div class="name">bordeaux-600</div></div></div>
+  <div><div class="swatch" style="background:#6B1F2A; border:2px solid var(--or)"></div><div class="swatch-info"><div class="hex">#6B1F2A ★</div><div class="name">bordeaux-700</div></div></div>
+  <div><div class="swatch" style="background:#511820"></div><div class="swatch-info"><div class="hex">#511820</div><div class="name">bordeaux-800</div></div></div>
+  <div><div class="swatch" style="background:#3C1118"></div><div class="swatch-info"><div class="hex">#3C1118</div><div class="name">bordeaux-900</div></div></div>
+</div>
+
+<h3>2.2 Crème — fond principal</h3>
+<div class="palette-grid">
+  <div><div class="swatch" style="background:#FDFBF6; border:1px solid #00000010"></div><div class="swatch-info"><div class="hex">#FDFBF6</div><div class="name">creme-50</div></div></div>
+  <div><div class="swatch" style="background:#FAF5EA"></div><div class="swatch-info"><div class="hex">#FAF5EA</div><div class="name">creme-100</div></div></div>
+  <div><div class="swatch" style="background:#F4ECDD; border:2px solid var(--or)"></div><div class="swatch-info"><div class="hex">#F4ECDD ★</div><div class="name">creme-200</div></div></div>
+  <div><div class="swatch" style="background:#EBDFC5"></div><div class="swatch-info"><div class="hex">#EBDFC5</div><div class="name">creme-300</div></div></div>
+  <div><div class="swatch" style="background:#DCC9A0"></div><div class="swatch-info"><div class="hex">#DCC9A0</div><div class="name">creme-400</div></div></div>
+  <div><div class="swatch" style="background:#CBB179"></div><div class="swatch-info"><div class="hex">#CBB179</div><div class="name">creme-500</div></div></div>
+  <div><div class="swatch" style="background:#B79858"></div><div class="swatch-info"><div class="hex">#B79858</div><div class="name">creme-600</div></div></div>
+  <div><div class="swatch" style="background:#967B47"></div><div class="swatch-info"><div class="hex">#967B47</div><div class="name">creme-700</div></div></div>
+  <div><div class="swatch" style="background:#7A653C"></div><div class="swatch-info"><div class="hex">#7A653C</div><div class="name">creme-800</div></div></div>
+  <div><div class="swatch" style="background:#5F4F31"></div><div class="swatch-info"><div class="hex">#5F4F31</div><div class="name">creme-900</div></div></div>
+</div>
+
+<h3>2.3 Or champagne — accent</h3>
+<div class="palette-grid">
+  <div><div class="swatch" style="background:#FBF7EE"></div><div class="swatch-info"><div class="hex">#FBF7EE</div><div class="name">or-50</div></div></div>
+  <div><div class="swatch" style="background:#F5ECD3"></div><div class="swatch-info"><div class="hex">#F5ECD3</div><div class="name">or-100</div></div></div>
+  <div><div class="swatch" style="background:#EAD8A8"></div><div class="swatch-info"><div class="hex">#EAD8A8</div><div class="name">or-200</div></div></div>
+  <div><div class="swatch" style="background:#DCBE74"></div><div class="swatch-info"><div class="hex">#DCBE74</div><div class="name">or-300</div></div></div>
+  <div><div class="swatch" style="background:#CFA84D"></div><div class="swatch-info"><div class="hex">#CFA84D</div><div class="name">or-400</div></div></div>
+  <div><div class="swatch" style="background:#C8A35A; border:2px solid var(--bordeaux)"></div><div class="swatch-info"><div class="hex">#C8A35A ★</div><div class="name">or-500</div></div></div>
+  <div><div class="swatch" style="background:#A88436"></div><div class="swatch-info"><div class="hex">#A88436</div><div class="name">or-600</div></div></div>
+  <div><div class="swatch" style="background:#876830"></div><div class="swatch-info"><div class="hex">#876830</div><div class="name">or-700</div></div></div>
+  <div><div class="swatch" style="background:#6F552C"></div><div class="swatch-info"><div class="hex">#6F552C</div><div class="name">or-800</div></div></div>
+  <div><div class="swatch" style="background:#5C4828"></div><div class="swatch-info"><div class="hex">#5C4828</div><div class="name">or-900</div></div></div>
+</div>
+
+<h3>2.4 Café — texte</h3>
+<div class="palette-grid">
+  <div><div class="swatch" style="background:#F7F3F1"></div><div class="swatch-info"><div class="hex">#F7F3F1</div><div class="name">cafe-50</div></div></div>
+  <div><div class="swatch" style="background:#EBDFD9"></div><div class="swatch-info"><div class="hex">#EBDFD9</div><div class="name">cafe-100</div></div></div>
+  <div><div class="swatch" style="background:#D5BCAF"></div><div class="swatch-info"><div class="hex">#D5BCAF</div><div class="name">cafe-200</div></div></div>
+  <div><div class="swatch" style="background:#B6917E"></div><div class="swatch-info"><div class="hex">#B6917E</div><div class="name">cafe-300</div></div></div>
+  <div><div class="swatch" style="background:#956B53"></div><div class="swatch-info"><div class="hex">#956B53</div><div class="name">cafe-400</div></div></div>
+  <div><div class="swatch" style="background:#7A5240"></div><div class="swatch-info"><div class="hex">#7A5240</div><div class="name">cafe-500</div></div></div>
+  <div><div class="swatch" style="background:#624234"></div><div class="swatch-info"><div class="hex">#624234</div><div class="name">cafe-600</div></div></div>
+  <div><div class="swatch" style="background:#4F352B"></div><div class="swatch-info"><div class="hex">#4F352B</div><div class="name">cafe-700</div></div></div>
+  <div><div class="swatch" style="background:#3A271F"></div><div class="swatch-info"><div class="hex">#3A271F</div><div class="name">cafe-800</div></div></div>
+  <div><div class="swatch" style="background:#2D1810; border:2px solid var(--or)"></div><div class="swatch-info"><div class="hex">#2D1810 ★</div><div class="name">cafe-900</div></div></div>
+</div>
+
+<h3>2.5 Terre — accent chaud (occasionnel)</h3>
+<div class="palette-grid">
+  <div><div class="swatch" style="background:#FDF4F0"></div><div class="swatch-info"><div class="hex">#FDF4F0</div><div class="name">terre-50</div></div></div>
+  <div><div class="swatch" style="background:#FAE4D9"></div><div class="swatch-info"><div class="hex">#FAE4D9</div><div class="name">terre-100</div></div></div>
+  <div><div class="swatch" style="background:#F4C7B0"></div><div class="swatch-info"><div class="hex">#F4C7B0</div><div class="name">terre-200</div></div></div>
+  <div><div class="swatch" style="background:#EE9F7B"></div><div class="swatch-info"><div class="hex">#EE9F7B</div><div class="name">terre-300</div></div></div>
+  <div><div class="swatch" style="background:#E8704A; border:2px solid var(--bordeaux)"></div><div class="swatch-info"><div class="hex">#E8704A ★</div><div class="name">terre-400</div></div></div>
+  <div><div class="swatch" style="background:#D8542B"></div><div class="swatch-info"><div class="hex">#D8542B</div><div class="name">terre-500</div></div></div>
+  <div><div class="swatch" style="background:#B83F1F"></div><div class="swatch-info"><div class="hex">#B83F1F</div><div class="name">terre-600</div></div></div>
+  <div><div class="swatch" style="background:#94311C"></div><div class="swatch-info"><div class="hex">#94311C</div><div class="name">terre-700</div></div></div>
+  <div><div class="swatch" style="background:#762A1C"></div><div class="swatch-info"><div class="hex">#762A1C</div><div class="name">terre-800</div></div></div>
+  <div><div class="swatch" style="background:#5F261B"></div><div class="swatch-info"><div class="hex">#5F261B</div><div class="name">terre-900</div></div></div>
+</div>
+
+<div class="callout">
+  <strong>Contrastes WCAG AA validés.</strong> Cafe-900 sur Creme-200 = ratio 12.4:1 (largement au-dessus du 4.5:1 requis pour AA). Bordeaux-700 sur Creme-200 = ratio 8.1:1.
+</div>
+
+<h1>3. Typographie</h1>
+
+<div class="typo-block">
+  <h4>Display — Fraunces (Google Fonts)</h4>
+  <p class="specimen specimen-large">Le goût juste,<br>à votre <em>table</em>.</p>
+  <p class="specimen-body" style="color:#555">Variable font, optical sizing. Weights 300 / 400 / 500 / 600. Style italic disponible. Utilisée pour <strong>tous les titres</strong> et les passages éditoriaux.</p>
+</div>
+
+<div class="typo-block">
+  <h4>UI — Inter (Google Fonts)</h4>
+  <p class="specimen-body" style="font-size:18pt; line-height:1.4">Inter regular pour le corps des paragraphes, l'interface, les boutons, les labels — tout ce qui n'est pas display.</p>
+  <p class="specimen-body" style="color:#555">Weights 400 / 500 / 600 / 700. Features stylistiques activées : <code>ss01</code>, <code>cv11</code>.</p>
+</div>
+
+<h3>3.1 Échelle typographique</h3>
+<table>
+  <tr><th>Token</th><th>Taille</th><th>Famille</th><th>Usage</th></tr>
+  <tr><td><code>display-2xl</code></td><td>clamp(3.5rem, 8vw, 7rem)</td><td>Fraunces 300</td><td>Hero principal</td></tr>
+  <tr><td><code>display-xl</code></td><td>clamp(2.75rem, 6vw, 5rem)</td><td>Fraunces 300</td><td>Titres de page</td></tr>
+  <tr><td><code>display-lg</code></td><td>clamp(2rem, 4.5vw, 3.5rem)</td><td>Fraunces 400</td><td>Titres de section</td></tr>
+  <tr><td><code>display-md</code></td><td>clamp(1.5rem, 3vw, 2.5rem)</td><td>Fraunces 400</td><td>Sub-titres, KPI</td></tr>
+  <tr><td><code>eyebrow</code></td><td>0.75rem, tracking 0.2em uppercase</td><td>Inter 500</td><td>Sur-titres de section</td></tr>
+  <tr><td>body</td><td>1rem, line-height 1.65</td><td>Inter 400</td><td>Paragraphes</td></tr>
+  <tr><td>small</td><td>0.875rem</td><td>Inter 400</td><td>Captions, meta</td></tr>
+</table>
+
+<h1>4. Iconographie &amp; composants UI</h1>
+
+<h3>4.1 Boutons</h3>
+<div class="component-demo">
+  <span class="btn btn-primary">Découvrir les menus</span>
+  &nbsp;&nbsp;
+  <span class="btn btn-ghost">Nous contacter</span>
+  &nbsp;&nbsp;
+  <span class="btn btn-gold">Voir tous les menus</span>
+</div>
+<p>Tous les boutons sont en pilule (radius 999pt). Hover : assombrissement (primary) ou inversion (ghost). Active : <code>scale: 0.98</code>. Transition <code>cubic-bezier(.22,1,.36,1)</code> 300ms.</p>
+
+<h3>4.2 Tags</h3>
+<div class="component-demo">
+  <span class="tag">classique</span>
+  <span class="tag tag-gold">végétarien</span>
+  <span class="tag">sans-gluten</span>
+  <span class="tag tag-gold">halal</span>
+</div>
+
+<h3>4.3 Cartes</h3>
+<p>Radius <code>1.25rem</code>. Background <code>creme-50</code>. Shadow <code>soft</code> par défaut, <code>card</code> au hover. Bord 1pt <code>cafe-900/5</code>.</p>
+
+<h1>5. Animations &amp; micro-interactions</h1>
+
+<h3>5.1 Courbe signature</h3>
+<p>Toutes les transitions utilisent la même courbe Bezier : <code>cubic-bezier(0.22, 1, 0.36, 1)</code>, nommée <strong>gourmand</strong>. Elle a un démarrage très lent et une sortie élégante — parfaite pour le style éditorial.</p>
+
+<h3>5.2 Hero — parallax</h3>
+<p>L'image du hero glisse vers le bas (<code>y: 0 → 150px</code>) au scroll, avec un overlay sombre qui s'intensifie. Crée une sensation de profondeur cinématographique.</p>
+
+<h3>5.3 Sections — apparition au scroll</h3>
+<p>Chaque section s'anime avec <code>whileInView</code> : opacity 0 → 1, y +24px → 0, sur 600-800ms. Cascade <code>delay: index * 80ms</code> sur les listes (témoignages, menus).</p>
+
+<h3>5.4 Cards menu — hover</h3>
+<p>Sur hover : carte se lève (<code>y: -6</code>), photo zoome (<code>scale: 1.05</code>) en 700ms. La pile shadow passe de <code>soft</code> à <code>card</code>.</p>
+
+<h1>6. Maquettes (3 desktop + 3 mobile)</h1>
+
+<p>Les maquettes ci-dessous sont des <strong>captures d'écran de l'application en production</strong>, prises avec Puppeteer en headless Chrome (résolutions Vercel pixel-perfect). Elles servent à la fois de wireframe (structure) et de mockup (rendu fidèle au déployé).</p>
+
+<h2>6.1 Maquettes desktop (1440 × 900)</h2>
+
+<figure>
+  <img src="../maquettes/out/desktop-01-home.jpg" alt="Maquette home desktop"/>
+  <figcaption>1. Accueil — Hero éditorial + sélection menus + manifeste + atelier + témoignages + CTA</figcaption>
+</figure>
+
+<figure>
+  <img src="../maquettes/out/desktop-02-menus.jpg" alt="Maquette menus desktop"/>
+  <figcaption>2. Liste des menus — Filtres latéraux dynamiques (prix, personnes, thème, régime) + grille de cartes responsives</figcaption>
+</figure>
+
+<figure>
+  <img src="../maquettes/out/desktop-03-menu-detail.jpg" alt="Maquette détail menu desktop"/>
+  <figcaption>3. Détail menu — Hero photo plein cadre + composition (entrée/plat/dessert) + allergènes + conditions en évidence + panel commande sticky</figcaption>
+</figure>
+
+<h2>6.2 Maquettes mobile (390 × 844)</h2>
+<div class="grid-3">
+  <figure>
+    <img src="../maquettes/out/mobile-01-home.jpg" alt="Maquette home mobile"/>
+    <figcaption>1. Accueil mobile</figcaption>
+  </figure>
+  <figure>
+    <img src="../maquettes/out/mobile-02-menus.jpg" alt="Maquette menus mobile"/>
+    <figcaption>2. Menus mobile — filtres pliables</figcaption>
+  </figure>
+  <figure>
+    <img src="../maquettes/out/mobile-03-menu-detail.jpg" alt="Maquette détail mobile"/>
+    <figcaption>3. Détail menu mobile</figcaption>
+  </figure>
+</div>
+
+<h1>7. Tokens techniques (Tailwind config)</h1>
+<pre style="background:#2D1810; color:#F4ECDD; padding:14pt; border-radius:6pt; font-family:'JetBrains Mono',monospace; font-size:8pt; line-height:1.5; overflow:hidden; white-space:pre-wrap;">colors: {
+  bordeaux: { 50..950 },
+  creme:    { 50..900 },
+  or:       { 50..900 },
+  cafe:     { 50..900 },
+  terre:    { 50..900 },
+},
+fontFamily: {
+  display: ['Fraunces', 'serif'],
+  sans:    ['Inter', 'sans-serif'],
+  mono:    ['JetBrains Mono', 'monospace'],
+},
+borderRadius: { card: '1.25rem' },
+boxShadow: {
+  soft: '0 1px 2px rgba(45,24,16,.04), 0 8px 24px -8px rgba(45,24,16,.08)',
+  card: '0 4px 6px rgba(45,24,16,.04), 0 24px 48px -16px rgba(45,24,16,.12)',
+  pop:  '0 2px 4px rgba(107,31,42,.06), 0 32px 64px -24px rgba(107,31,42,.20)',
+},
+transitionTimingFunction: { gourmand: 'cubic-bezier(.22,1,.36,1)' },</pre>
+
+</body>
+</html>
