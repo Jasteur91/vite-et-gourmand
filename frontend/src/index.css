@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Vite & Gourmand — Design System éditorial gourmand
+   ============================================================ */
+
+@layer base {
+  :root {
+    --color-bg: 244 236 221;            /* creme-200 */
+    --color-text: 45 24 16;             /* cafe-900 */
+    --color-accent: 107 31 42;          /* bordeaux-700 */
+    --color-gold: 200 163 90;           /* or-500 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-creme-200 text-cafe-900 font-sans;
+    font-feature-settings: 'ss01', 'cv11';
+    /* Léger grain pour la chaleur papier */
+    background-image:
+      radial-gradient(at 80% 20%, rgba(200,163,90,0.08), transparent 50%),
+      radial-gradient(at 20% 90%, rgba(107,31,42,0.06), transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Sélection */
+  ::selection {
+    @apply bg-bordeaux-700 text-creme-100;
+  }
+
+  /* Focus accessible RGAA */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-bordeaux-700 ring-offset-2 ring-offset-creme-200 rounded-sm;
+  }
+
+  /* Display headings — Fraunces avec optical sizing */
+  .display {
+    @apply font-display tracking-tight;
+    font-optical-sizing: auto;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+    font-optical-sizing: auto;
+  }
+}
+
+@layer components {
+  /* Conteneur éditorial */
+  .container-edit {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  /* Eyebrow (suréclat de section) */
+  .eyebrow {
+    @apply text-eyebrow uppercase text-bordeaux-700;
+  }
+
+  /* Bouton principal */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium
+           transition-all duration-300 ease-gourmand
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-bordeaux-700 text-creme-100 hover:bg-bordeaux-800 hover:shadow-pop active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn border border-cafe-900/20 text-cafe-900 hover:bg-cafe-900 hover:text-creme-100;
+  }
+  .btn-gold {
+    @apply btn bg-or-500 text-cafe-900 hover:bg-or-600 hover:shadow-pop;
+  }
+
+  /* Carte */
+  .card {
+    @apply bg-creme-50 rounded-card shadow-soft border border-cafe-900/5
+           transition-all duration-500 ease-gourmand hover:shadow-card;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full px-4 py-3 rounded-lg bg-creme-50 border border-cafe-900/15
+           text-cafe-900 placeholder:text-cafe-900/40
+           transition-colors duration-200
+           focus:border-bordeaux-700 focus:outline-none;
+  }
+
+  /* Label */
+  .label {
+    @apply block text-sm font-medium text-cafe-800 mb-2;
+  }
+
+  /* Tag (régime, allergène, etc.) */
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+           bg-creme-300 text-cafe-800 border border-cafe-900/5;
+  }
+  .tag-gold { @apply tag bg-or-100 text-or-900 border-or-200; }
+  .tag-bordeaux { @apply tag bg-bordeaux-100 text-bordeaux-800 border-bordeaux-200; }
+}
+
+@layer utilities {
+  /* Ligne décorative éditoriale */
+  .rule-gold {
+    @apply h-px w-12 bg-gradient-to-r from-or-500/0 via-or-500 to-or-500/0;
+  }
+
+  /* Texte avec drop cap (éditorial) */
+  .dropcap::first-letter {
+    @apply font-display text-bordeaux-700 text-7xl float-left mr-3 mt-1 leading-none;
+  }
+
+  /* Animation entrée éditoriale */
+  @keyframes rise-fade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rise-fade { animation: rise-fade 0.8s ease-gourmand both; }
+}
