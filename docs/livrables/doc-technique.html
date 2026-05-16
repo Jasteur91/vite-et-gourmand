@@ -499,7 +499,18 @@ Employé UI       Backend          PostgreSQL          MongoDB          Resend
 <!-- ============================ 8. ENV ============================ -->
 <h1>8. Configuration de l'environnement de travail</h1>
 
-<h3>8.1 Prérequis machine</h3>
+<h3>8.1 Outils externes utilisés</h3>
+<table>
+  <tr><th>Outil</th><th>Usage</th><th>Lien (consultable)</th></tr>
+  <tr><td>GitHub</td><td>Versioning, gitflow, hébergement code (PUBLIC)</td><td>https://github.com/Jasteur91/vite-et-gourmand</td></tr>
+  <tr><td>Notion</td><td>Gestion de projet : Kanban + Calendrier + Timeline Gantt + Table (27 tâches sur 7 sem.)</td><td>https://www.notion.so/3628e177f2a2815ab773e55b796f2602</td></tr>
+  <tr><td>Vercel</td><td>Hébergement frontend + backend serverless</td><td>https://vite-et-gourmand-drab.vercel.app</td></tr>
+  <tr><td>Supabase</td><td>PostgreSQL managé (région Paris)</td><td>Dashboard privé</td></tr>
+  <tr><td>MongoDB Atlas</td><td>NoSQL cluster M0 (production)</td><td>Dashboard privé</td></tr>
+  <tr><td>Resend</td><td>Envoi des mails transactionnels</td><td>Dashboard privé</td></tr>
+</table>
+
+<h3>8.2 Prérequis machine</h3>
 <ul>
   <li>Node.js ≥ 20 (utilisé en dev : 24)</li>
   <li>npm ≥ 10</li>
@@ -507,7 +518,7 @@ Employé UI       Backend          PostgreSQL          MongoDB          Resend
   <li>Compte GitHub, Supabase, Vercel, Resend, MongoDB Atlas</li>
 </ul>
 
-<h3>8.2 Variables d'environnement backend</h3>
+<h3>8.3 Variables d'environnement backend</h3>
 <table>
   <tr><th>Variable</th><th>Description</th><th>Exemple</th></tr>
   <tr><td><code>NODE_ENV</code></td><td>Mode d'exécution</td><td>production / development</td></tr>
@@ -523,7 +534,7 @@ Employé UI       Backend          PostgreSQL          MongoDB          Resend
   <tr><td><code>BCRYPT_ROUNDS</code></td><td>Coût bcrypt (10-15)</td><td>12</td></tr>
 </table>
 
-<h3>8.3 Démarrage local</h3>
+<h3>8.4 Démarrage local</h3>
 <pre># 1. Cloner le repo
 git clone https://github.com/Jasteur91/vite-et-gourmand.git
 cd vite-et-gourmand
