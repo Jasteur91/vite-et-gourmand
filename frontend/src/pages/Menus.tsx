@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SlidersHorizontal, X } from 'lucide-react';
-import { $ } from '../lib/api';
+import { $, api } from '../lib/api';
 import { MenuCard, type MenuItem } from '../components/MenuCard';
 
 type Theme = { theme_id: number; libelle: string };
@@ -36,13 +36,12 @@ export function Menus() {
     if (regime) params.set('regime', regime);
 
     setLoading(true);
-    const ctl = new AbortController();
-    fetch(`/api/menus?${params.toString()}`, { signal: ctl.signal })
-      .then((r) => r.json())
-      .then((data) => setMenus(Array.isArray(data) ? data : []))
+    let cancelled = false;
+    api<MenuItem[]>(`/menus?${params.toString()}`)
+      .then((data) => { if (!cancelled) setMenus(Array.isArray(data) ? data : []); })
       .catch(() => {})
-      .finally(() => setLoading(false));
-    return () => ctl.abort();
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
   }, [prixMin, prixMax, nbPersonnesMin, theme, regime]);
 
   const activeCount = useMemo(
