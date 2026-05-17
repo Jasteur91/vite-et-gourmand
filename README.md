@@ -10,7 +10,7 @@
 
 - **Application** : https://vite-et-gourmand-drab.vercel.app
 - **API backend** : https://vite-et-gourmand-api-three.vercel.app/api
-- **Notion projet** : https://www.notion.so/3628e177f2a2815ab773e55b796f2602
+- **Notion projet** : https://almond-jodhpur-dc7.notion.site/Vite-Gourmand-Projet-ECF-DWWM-2026-3628e177f2a2815ab773e55b796f2602?pvs=143
 
 ---
 
